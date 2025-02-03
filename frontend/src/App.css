@@ -1,0 +1,167 @@
+.project-cards::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #d7bb90b2;;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms ease-in;
+  z-index: 1;
+}
+.project-cards:hover::after {
+  height: 100%;
+  width: 100%;
+}
+.linear-dark-bg {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.02) 5%,
+    rgba(0, 0, 0, 0.137) 7%,
+    rgba(0, 0, 0, 0.96) 78%
+  );
+}
+
+.dark-background-image {
+  background-image: url(/dark-background.png);
+  background-repeat: no-repeat;
+  background-color: #090909f7;
+  background-position: left;
+}
+.icon-bg {
+  background-image: linear-gradient(to bottom, #bdbdbd, white);
+}
+.portfolio-cards::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #000000aa;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms ease-in;
+  z-index: 1;
+}
+.portfolio-cards:hover::after {
+  height: 100%;
+  width: 100%;
+}
+
+.fade-indicator:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: transparent;
+  border-top: 2px dotted white;
+  width: 7rem;
+  right: -5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.fade-indicator {
+  background-color: #ffffff;
+  color: black;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 1.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 1;
+}
+.fade-indicator.active {
+  background-color: var(--color-secondary);
+  transition: background-color 0.5s ease;
+}
+@media screen and (min-width: 768px) {
+  .fade-indicator:not(:last-child)::after {
+    width:3rem;
+    right: -3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .fade-indicator:not(:last-child)::after {
+    width:9rem;
+    right: -9rem;
+  }
+}
+.testimonial-border {
+  position: relative;
+}
+.testimonial-border::before {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 100%;
+  height: 10px;
+  width: 10px;
+  border: 5px solid #d7bb90;
+  background-color: #d7bb90;
+  border-top: none;
+  border-left: none;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
+#get-in-touch > div:nth-child(1) {
+  background-color: rgba(0, 0, 0, 0.655);
+  overflow: hidden;
+}
+#get-in-touch > div:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: -37.5%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150%;
+  width: 220%;
+  background-image: url("/get-in-touch-bg.jfif");
+  background-size: cover;
+  z-index: -1;
+}
+.before-after-buttons > p {
+  color: white;
+  background-color: black;
+}
+.before-after-buttons > p {
+  color: white;
+  background: linear-gradient(to right, var(--color-khakiGreen) 50%, black 50%)
+    right;
+  background-size: 200%;
+  transition: ease-out 350ms;
+}
+.before-after-buttons:not(.active) > p {
+  background-position: left;
+}
+.before-after-buttons:not(.active):hover > p {
+  background-position: right;
+}
+.before-after-buttons.active > .icons {
+  background-color: var(--color-khakiGreen);
+  fill: white;
+}
+.before-after-buttons > .icons:not(.active) {
+  fill: var(--color-khakiGreen);
+  background-color: white;
+}
+.before-after-buttons:hover > .icons:not(.active) {
+  fill: white;
+  background-color: var(--color-khakiGreen);
+}
+.hide-scrollbar::-webkit-scrollbar{
+display: none;
+}
