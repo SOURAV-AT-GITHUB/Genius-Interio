@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
-const PORT = 3000;
+require("dotenv").config()
+const PORT =process.env.PORT || 3000;
 const imagesRouter = require("./routes/images.route")
 const cors = require("cors")
 const app = express();
