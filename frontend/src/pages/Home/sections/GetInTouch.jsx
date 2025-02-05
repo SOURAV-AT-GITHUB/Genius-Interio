@@ -2,7 +2,7 @@ import Button from "../../../components/Button";
 
 export default function GetInTouch() {
   return (
-    <section id="get-in-touch" className="flex flex-col lg:flex-row">
+    <section id="home-get-in-touch" className="flex flex-col lg:flex-row">
       <div className="relative  lg:w-2/4 bg-no-repeat min-h-[400px] p-4  lg:p-28 lg:py-40  text-secondary flex flex-col gap-5 justify-evenly">
         <p className="text-lg text-nowrap">Get In Touch</p>
         <h4 className="text-5xl text-nowrap">Got Any Inquiry?</h4>

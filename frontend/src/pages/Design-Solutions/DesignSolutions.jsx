@@ -97,10 +97,8 @@ export default function DesignSolutions() {
   const getData = async () => {
     try {
       const response = await axios.get(`${BACKEND_URL}/images/${category}`);
-      console.log(response.data.data);
       setData(response.data.data)
-    } catch (error) {
-      console.log(error);
+    } catch (/*eslint-disable no-unused-vars*/error) {
       setData(null)
     }
   };
@@ -118,7 +116,7 @@ export default function DesignSolutions() {
 
         <button onClick={scrollLeft}   className={`${isAtStart && 'hidden'}  absolute left-0 top-1 bg-white border rounded-full border-black`}><KeyboardArrowLeftIcon/></button>
 
-      <div ref={slideNavRef}  className=" px-8 py-1  w-full overflow-x-scroll flex gap-6 text-nowrap  hide-scrollbar">
+      <div ref={slideNavRef}  className="px-2 sm:px-8 py-1  w-full overflow-x-scroll flex gap-6 text-nowrap  hide-scrollbar">
         {slideNavItems.map((item,index) => (
           <NavLink key={item} to={`/design-solutions/${item.toLowerCase().split(' ').join('-')}`}>
           <p key={item} className={`font-medium text-slate-600 ${index === validIndex && 'text-red-500 border-b-4 border-red-500'}`}>
@@ -137,7 +135,7 @@ export default function DesignSolutions() {
           <p className="text-5xl font-medium border-l-8 border-primary pl-3">
             {data.title}
           </p>
-          <p className={`${!isExpanded && "line-clamp-2"} w-7/12`}>
+          <p className={`${!isExpanded && "line-clamp-2"} lg:w-7/12`}>
             {data.description}
           </p>
           <p
@@ -147,7 +145,7 @@ export default function DesignSolutions() {
             Read More <KeyboardArrowDownIcon className="" />
           </p>
 
-          <div className="grid grid-cols-3 gap-8">
+          <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
             {data.images.map((item, index) => (
               <div key={index} className="group overflow-hidden rounded-2xl">
                 <div className="overflow-hidden">
