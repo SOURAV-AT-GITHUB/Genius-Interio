@@ -16,7 +16,7 @@ export default function Navbar() {
     [
       "False Ceiling Designs",
       "Flooring Designs",
-      "Wall Decors Ideas",
+      "Wall Decor Ideas",
       "Door Designs",
     ],
   ];

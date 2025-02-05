@@ -103,7 +103,21 @@ export default function DesignSolutions() {
     }
   };
   useEffect(() => {
-    getData()
+    if(slideNavRef.current&&slideNavItems.some(item=>item.toLowerCase().split(' ').join('-') === category) ) {
+      const index = slideNavItems.findIndex(item=>item.toLowerCase().split(' ').join('-') === category)
+      console.log(index)
+      const nodeList = slideNavRef.current
+      const node = nodeList.querySelectorAll("a > p")[index]
+      node.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest",
+        inline:"center"
+      })
+      console.log(node)
+      getData()
+    }else{
+      setData(null)
+    }
   }, [category]);
 
   return (
