@@ -5,20 +5,28 @@ import navImage1 from "/Navbar/nav-design-solutions.jfif";
 // import navImage2 from "/Navbar/nav-more.jfif";
 import penIcon from "/Navbar/pen.svg";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Drawer } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 export default function Navbar() {
   const solutions = [
     ["Modular Kitchen", "Wardrobe", "Bathroom", "Master Bedroom"],
-    ["Living Room", "Temples", "TV Unit", "HomeBar Unit"],
-    ["Dining Area", "Tile Designs", "Wallpapers", "Home Office"],
-    ["False Ceiling", "Flooring", "Wall Decors", "Doors"],
+    ["Living Room", "Pooja Room", "TV Unit Designs", "Home Bar Unit"],
+    ["Dining Room", "Tile Designs", "Wallpaper Designs", "Home Office"],
+    ["False Ceiling Designs", "Flooring Designs", "Wall Decors Ideas", "Door Designs"],
   ];
   // const more = ["About Us", "Contact Us", "Privacy Policy", "Our Blog"];
+  const [open,setOpen] = useState(false)
+  const openDrawer = ()=> setOpen(true)
+  const closeDrawer = ()=> setOpen(false)
   return (
     <nav className="max-w-[100vw] w-full px-2  lg:px-6  xl:px-12   bg-white flex items-center justify-between lg:justify-center  border-b ">
-      <img src={logo} alt="logo" className="w-2/4  lg:w-1/6 scale-90  h-14 " />
+      <NavLink to="/" className='w-2/4  lg:w-1/6'>
+      <img src={logo} alt="logo" className="object-cover object-center" />
+      </NavLink>
 
-      <ul className="hidden lg:flex w-2/4 h-full gap-2  xl:gap-4 justify-center  items-center  ">
+      <ul className="hidden lg:flex w-2/4 h-full gap-1  xl:gap-4 justify-center  items-center  ">
         <li className="flex items-end gap-2  py-4 px-2">
           <p>Home</p>{" "}
         </li>
@@ -112,9 +120,45 @@ export default function Navbar() {
         {/* <Button text={"Connect Now"} /> */}
         <button className="bg-secondary text-white px-2 rounded-full ">Connect Now</button>
       </div>
-      <div className="lg:hidden">
+      <div className="lg:hidden" onClick={openDrawer}>
         <MenuIcon  sx={{fontSize:"2.5rem"}}/>
       </div>
+      <Drawer anchor="right" open={open} onClose={closeDrawer}>
+        <div className="min-w-[40vw] max-w-[70vw]">
+          <button onClick={closeDrawer}>
+
+          <CloseIcon fontSize="large" />
+          </button>
+          <img src={logo} alt="" className="w-full my-2"/>
+        <ul className="flex flex-col gap-4 p-4 text-xl">
+        <li >
+          <p>Home</p>{" "}
+        </li>
+        <li >
+          <p>About</p>{" "}
+        </li>
+        <li >
+          <p>Service</p>{" "}
+        </li>
+        <li >
+          <p>Portfolio</p>{" "}
+        </li>
+        <li >
+          <p>Pages</p>{" "}
+        </li>
+        <li >
+          <p>Blog</p>{" "}
+        </li>
+        <li >
+          <p>Contacts</p>{" "}
+        </li>
+        </ul>
+        <div className="text-2xl w-full text-center">
+        {/* <Button text={"Connect Now"} /> */}
+        <button className="bg-secondary text-white p-2 w-4/5 rounded-full">Connect Now</button>
+      </div>
+        </div>
+      </Drawer>
     </nav>
   );
 }

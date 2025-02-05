@@ -86,14 +86,14 @@ export default function HeroSection() {
               key={index}
               className={`w-[12px] h-[12px] rounded-full border border-slate-600 ${
                 index === activeSlide && "bg-darkBrown"
-              } transition-all duration-1000 ease-in-out`}
+              } transition-all duration-[750ms] ease-in-out`}
             ></div>
           ))}
         </ul>
       </div>
 
-      <div className="relative p-2 md:w-10/12 m-auto mt-20 md:flex gap-8 justify-center ">
-        <div className="md:w-2/4">
+      <div className="relative p-2 md:w-10/12 m-auto mt-10 lg:mt-20 sm:flex gap-8 justify-center ">
+        <div className="sm:w-2/4">
           <h4 className="text-3xl lg:text-5xl leading-snug font-semibold py-1 mb-3">
             We are creative Interior and architech - Design company
           </h4>
@@ -111,7 +111,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="md:w-2/4 flex flex-col gap-4">
+        <div className="sm:w-2/4 flex flex-col gap-4">
           <p className="text-sm text-secondary">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
             minima, aut officiis ipsa voluptates, unde possimus quisquam
@@ -141,7 +141,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="relative  md:w-10/12  m-auto mt-20">
+      <div className="relative  md:w-10/12  m-auto mt-10 lg:mt-20">
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 p-2">
           <h4 className="text-2xl font-semibold">Latest Project</h4>
           <ul className="flex gap-2 items-center ">
@@ -176,7 +176,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="w-full bg-secondary mt-20 p-3 lg:py-6">
+      <div className="w-full bg-secondary mt-10 lg:mt-20 p-3 lg:py-6">
         <div className="relative m-auto md:w-10/12 ">
           <div className="flex items-center justify-between">
             <h4 className="text-2xl font-semibold">Our Speciality Services</h4>

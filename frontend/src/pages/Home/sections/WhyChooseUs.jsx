@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
     }
   }, [reverse]);
   return (
-    <section className="my-20  text-center grid gap-4">
+    <section className="my-10 lg:my-20  text-center grid gap-4">
       <p className="text-lg font-medium">Why Choose Us</p>
       <h4 className="text-4xl text-accent">What Sets Us Apart ?</h4>
       <p className="m-auto sm:w-2/4 text-lg">
