@@ -10,7 +10,7 @@ export default function Step1(props) {
             key={option}
             className={`${
               formData.BHKType === option
-                ? "border-darkBrown"
+                ? "border-primary"
                 : " border-slate-400"
             }  border   p-4 flex items-center  gap-4 cursor-pointer`}
             onClick={() =>
@@ -20,7 +20,7 @@ export default function Step1(props) {
             <div
               className={`${
                 formData.BHKType === option
-                  ? "border-8 border-darkBrown p-2"
+                  ? "border-8 border-primary p-2"
                   : " border border-slate-400 p-3"
               }  rounded-full `}
             ></div>

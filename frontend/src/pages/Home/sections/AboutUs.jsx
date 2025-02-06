@@ -36,7 +36,7 @@ export default function AboutUs() {
     </div>
 
     <div className="sm:w-2/4 flex flex-col gap-4">
-      <p className="text-sm text-secondary">
+      <p className="text-sm text-primary">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
         minima, aut officiis ipsa voluptates, unde possimus quisquam
         asperiores odio pariatur voluptatibus hic nihil suscipit, expedita
@@ -52,7 +52,7 @@ export default function AboutUs() {
             <img
               src={step.icon}
               alt={step.text}
-              className="p-2 border border-secondary rounded-2xl"
+              className="p-2 border border-primary rounded-2xl"
             />
             <p className="text- font-medium">{step.text}</p>
           </div>

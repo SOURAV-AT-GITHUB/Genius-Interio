@@ -16,7 +16,7 @@ import Step2 from "./steps/Step2";
 import Step3 from "./steps/Step3";
 import { useNavigate } from "react-router-dom";
 
-const darkBrownColor = "#b77231";
+const primaryColor = "#8D7C68";
 const CustomStepIcon = (props) => {
   const { active, completed } = props;
   return (
@@ -29,7 +29,7 @@ const CustomStepIcon = (props) => {
         justifyContent: "center",
         borderRadius: "50%",
         border: completed || active ? "8px solid" : "2px solid",
-        borderColor: completed || active ? darkBrownColor : "darkgray",
+        borderColor: completed || active ? primaryColor : "darkgray",
         backgroundColor: "white",
         color: "white",
         fontWeight: "bold",
@@ -45,12 +45,12 @@ const CustomStepConnectior = styled(StepConnector)(({ theme }) => ({
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: darkBrownColor,
+      backgroundColor: primaryColor,
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: darkBrownColor,
+      backgroundColor: primaryColor,
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
@@ -128,7 +128,7 @@ export default function CalculateApproximateCost() {
 
         <div className="flex justify-between p-5 bg-white mt-2">
           <button
-            className={`border border-darkBrown px-2 disabled:cursor-not-allowed disabled:opacity-60`}
+            className={`border border-primary px-2 disabled:cursor-not-allowed disabled:opacity-60`}
             onClick={decreaseStep}
           >
             {" "}
@@ -144,7 +144,7 @@ export default function CalculateApproximateCost() {
           </button>
           {activeStep < 2 ? (
             <button
-              className="bg-darkBrown px-2 disabled:cursor-not-allowed disabled:opacity-60"
+              className="bg-primary px-2 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={activeStep >= 2 || !formData.BHKType}
               onClick={() => setActiveStep((prev) => prev + 1)}
             >

@@ -112,7 +112,8 @@ export default function DesignSolutions() {
         behavior:"smooth",
         block:"nearest",
         inline:"center"
-      })
+      }
+    )
       console.log(node)
       getData()
     }else{

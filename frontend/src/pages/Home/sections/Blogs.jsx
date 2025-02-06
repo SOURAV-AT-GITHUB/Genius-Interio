@@ -34,7 +34,7 @@ export default function Blogs() {
     <section id="home-blogs" className=" p-3 lg:px-16 lg:py-8 overflow-hidden">
         <div className="flex items-center justify-between mb-4">
             <h4 className="text-3xl font-semibold">Blogs</h4>
-            <button className="text-lg px-3 bg-secondary text-white rounded-2xl">See More</button>
+            <button className="text-lg px-3 text-white bg-primary rounded-2xl">See More</button>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-between">
       {blogs.map((blog, index) => (
@@ -45,7 +45,7 @@ export default function Blogs() {
             className="h-3/4 w-full object-cover object-center rounded-2xl"
           />
           <div className="absolute bottom-10 left-2/4 -translate-x-2/4 bg-white rounded-xl h-1/4 w-11/12 p-2">
-            <h4 className="bg-darkBrown text-white px-2 rounded-3xl w-fit">
+            <h4 className="bg-primary text-white px-2 rounded-3xl w-fit">
               Title {index + 1}
             </h4>
             <h4>{blog.title}</h4>

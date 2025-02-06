@@ -59,7 +59,7 @@ export default function HeroSection() {
             <div
               key={index}
               className={`w-[12px] h-[12px] rounded-full border border-slate-600 ${
-                index === activeSlide && "bg-darkBrown"
+                index === activeSlide && "bg-primary"
               } transition-all duration-[750ms] ease-in-out`}
             ></div>
           ))}

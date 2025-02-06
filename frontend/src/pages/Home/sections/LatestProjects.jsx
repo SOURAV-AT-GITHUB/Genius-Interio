@@ -15,7 +15,7 @@ export default function LatestProjects() {
     <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 p-2">
       <h4 className="text-2xl font-semibold">Latest Project</h4>
       <ul className="flex gap-2 items-center ">
-        <button className="rounded-2xl p-1 px-2 text-xs sm:text-base bg-secondary text-white">
+        <button className="rounded-2xl p-1 px-2 text-xs sm:text-base bg-primary text-white">
           Category 1
         </button>
         <button className="rounded-2xl p-1 px-2 text-xs sm:text-base ">Category 2</button>
@@ -37,7 +37,7 @@ export default function LatestProjects() {
           <div className="absolute z-10 w-full p-2 flex flex-col gap-3 text-sm text-white left-[50%] translate-x-[-50%]  -top-3/4 group-hover/card:top-[50%] translate-y-[-50%]  transition-all duration-300 ease-in">
             <p className="text-2xl font-medium">{projects.title}</p>
             <p>{projects.description}</p>
-            <button className="w-fit bg-secondary text-lg text-white font-semibold py-1 px-3 rounded-3xl">
+            <button className="w-fit bg-primary text-lg text-white font-semibold py-1 px-3 rounded-3xl">
               Get Quote
             </button>
           </div>

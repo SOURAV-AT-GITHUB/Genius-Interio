@@ -5,7 +5,7 @@ import couchImage from "/Get-Started/couch.svg";
 import Button from "../../../components/Button";
 export default function GetStarted() {
   return (
-    <section className="relative border-b flex gap-10 justify-between items-center">
+    <section className="relative border-b flex gap-10 justify-between items-center bg-secondary border border-primary">
       <div className="relative w-fit">
         <img
           src={lefttImage}

@@ -12,11 +12,11 @@ export default function OurSpecialityServices() {
         // {text:"Furnishing",icon:furnishingIcon},
       ];
   return (
-      <section id="home-our-speciality-" className="w-full bg-secondary mt-10 lg:mt-20 p-3 lg:py-6">
+      <section id="home-our-speciality-services" className="w-full bg-secondary mt-10 lg:mt-20 p-3 lg:py-6">
         <div className="relative m-auto md:w-10/12 ">
           <div className="flex items-center justify-between">
             <h4 className="text-2xl font-semibold">Our Speciality Services</h4>
-            <button className="bg-darkBrown rounded-3xl text-white font-medium text-lg py-1 px-3">
+            <button className="bg-primary rounded-3xl text-white font-medium text-lg py-1 px-3">
               Visit Us
             </button>
           </div>

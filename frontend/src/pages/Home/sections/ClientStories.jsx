@@ -47,8 +47,8 @@ export default function ClientStories() {
         </p>
       </div>
       <div className="flex   gap-5">
-        <button><img src={arrowIcon} alt="arrow" className="rotate-180 border border-yellow-300 p-4 py-5"/></button>
-        <button><img src={arrowIcon} alt="arrow" className="bg-yellow-300 p-4 py-5"/></button>
+        <button><img src={arrowIcon} alt="arrow" className="rotate-180 border border-primary  p-4 py-5"/></button>
+        <button><img src={arrowIcon} alt="arrow" className="bg-primary  p-4 py-5"/></button>
       </div>
       </div>
       <div className="flex flex-col md:flex-row  gap-6">
@@ -71,7 +71,7 @@ export default function ClientStories() {
                  transition-all duration-300 ease-linear`}
               />
             </div>
-            <div className={`bg-[#F6F4F4] p-6 mt-10 testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}>
+            <div className={`bg-secondary p-6 mt-10 testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}>
               <img
                 src={starRatings}
                 alt="starRatings"

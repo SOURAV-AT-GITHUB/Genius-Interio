@@ -11,7 +11,7 @@ export default function GetInTouch() {
           be happy to help!
         </p>
         <div className="w-fit text-black xl:text-lg m-auto lg:m-0">
-    <Button text="Download Brochure" arrow="white"/>
+    <Button text="Download Brochure"/>
         </div>
       </div>
 
@@ -23,24 +23,24 @@ export default function GetInTouch() {
           <input
             type="text"
             placeholder="Last Name"
-            className="border border-black p-2 pl-5  text-lg "
+            className="border border-primary p-2 pl-5  text-lg "
           />
           <input
             type="text"
             placeholder="First Name"
-            className="border border-black p-2 pl-5  text-lg "
+            className="border border-primary p-2 pl-5  text-lg "
           />
           <input
             type="text"
             placeholder="Contact Number"
-            className="border border-black p-2 pl-5  text-lg "
+            className="border border-primary p-2 pl-5  text-lg "
           />
           <input
             type="text"
             placeholder="Email"
-            className="border border-black p-2 pl-5  text-lg "
+            className="border border-primary p-2 pl-5  text-lg "
           />
-          <select className="col-span-2 border border-black p-2 pl-5  text-lg">
+          <select className="col-span-2 border border-primary p-2 pl-5  text-lg">
             <option value="">Project Type</option>
             <option value="">Home</option>
             <option value="">Business</option>
@@ -49,8 +49,12 @@ export default function GetInTouch() {
           <input
             type="text"
             placeholder="Description"
-            className="col-span-2 row-span-4  border border-black p-2 pl-5  text-lg"
+            className="col-span-2 row-span-4  border border-primary p-2 pl-5  text-lg"
           />
+          <div className="col-span-2 text-center">
+
+          <Button text="Request Quote"/>
+          </div>
         </form>
       </div>
     </section>
