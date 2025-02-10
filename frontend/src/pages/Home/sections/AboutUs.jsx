@@ -16,7 +16,7 @@ export default function AboutUs() {
   ]
 
   return (
-    <section id="home-about-us" className="relative p-2 md:w-10/12 m-auto mt-10 lg:mt-20 flex flex-col sm:flex-row gap-8 justify-center ">
+    <section id="home-about-us" className="relative p-3 lg:p-16  flex flex-col sm:flex-row gap-8 justify-center ">
     <div className="sm:w-2/4">
       <h4 className="text-3xl lg:text-5xl leading-snug font-semibold py-1 mb-3">
         We are creative Interior and architech - Design company

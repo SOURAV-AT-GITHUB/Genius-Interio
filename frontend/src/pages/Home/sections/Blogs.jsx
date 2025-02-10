@@ -31,7 +31,7 @@ export default function Blogs() {
     },
   ];
   return (
-    <section id="home-blogs" className=" p-3 lg:px-16 lg:py-8 overflow-hidden">
+    <section id="home-blogs" className="  p-3 lg:p-16 lg:pt-8 overflow-hidden">
         <div className="flex items-center justify-between mb-4">
             <h4 className="text-3xl font-semibold">Blogs</h4>
             <button className="text-lg px-3 text-white bg-primary rounded-2xl">See More</button>

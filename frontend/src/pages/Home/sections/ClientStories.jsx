@@ -34,7 +34,7 @@ export default function ClientStories() {
 
 
   return (
-    <section className="p-3 lg:p-16 grid gap-6">
+    <section className=" p-3 lg:p-16 grid gap-6">
       <div className="flex flex-col md:flex-row gap-4  justify-between">
 
       

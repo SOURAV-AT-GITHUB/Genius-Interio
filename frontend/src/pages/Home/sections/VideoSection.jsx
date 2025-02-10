@@ -19,7 +19,7 @@ export default function VideoSection() {
           type="video/webm"
         />
       </video>
-      <div className="flex items-center justify-between relative m-auto md:w-10/12 text-center p-3 lg:py-10">
+      <div className="flex items-center justify-between relative m-auto md:w-11/12 text-center p-3 lg:py-10">
         <div>
           <h4 className="md:text-3xl lg:text-5xl font-semibold">21K+</h4>
           <p className="text-sm">Complete Projects</p>
