@@ -3,7 +3,9 @@ import testimonialImage2 from "/testimonials/testimonial2.jfif";
 import testimonialImage3 from "/testimonials/testimonial3.jfif";
 import starRatings from "/testimonials/stars.svg";
 import quotes from "/testimonials/quotes.svg";
-import arrowIcon from '/testimonials/arrow.svg'
+import arrowIcon from "/testimonials/arrow.svg";
+import EastIcon from "@mui/icons-material/East";
+import WestIcon from "@mui/icons-material/West";
 export default function ClientStories() {
   const testimonials = [
     {
@@ -19,7 +21,6 @@ export default function ClientStories() {
         "Working with Genius Interio was a seamless experience. They perfectly balanced functionality and aesthetics in our living room design. We couldn’t be happier with the result!",
       author: "Megha & Kunal P.",
       authorType: "Business Owner",
-
     },
     {
       image: testimonialImage3,
@@ -27,37 +28,43 @@ export default function ClientStories() {
         "The Genius Interio team exceeded our expectations! From the initial consultation to the final execution, they delivered a stunning design that’s both practical and elegant.",
       author: "Priya R.",
       authorType: "Renovation Project",
-
     },
   ];
 
-
-
   return (
-    <section className=" p-3 lg:p-16 grid gap-6">
-      <div className="flex flex-col md:flex-row gap-4  justify-between">
-
+    <section className=" p-4 lg:px-16 lg:py-12 ">
+      <div className="w-[90%] m-auto grid gap-6">
+        
       
-      <div className="flex flex-col gap-6 ">
-        <p className="font-medium text-lg">Client Stories</p>
-        <h4 className="text-3xl  md:text-5xl text-accent">What Out Clients Say</h4>
-        <p className="md:w-2/4 text-lg tracking-wider ">
-          Discover what our clients have to say about their transformed spaces
-          and how we brought their dreams to life.
-        </p>
-      </div>
-      <div className="flex   gap-5">
-        <button><img src={arrowIcon} alt="arrow" className="rotate-180 border border-primary  p-4 py-5"/></button>
-        <button><img src={arrowIcon} alt="arrow" className="bg-primary  p-4 py-5"/></button>
-      </div>
+      <div className="flex flex-col md:flex-row gap-4  justify-between">
+        <div className="flex flex-col gap-6 ">
+          <p className="font-medium text-lg">Client Stories</p>
+          <h4 className="text-3xl  md:text-5xl text-accent">
+            What Out Clients Say
+          </h4>
+          <p className="md:w-2/4 text-lg tracking-wider ">
+            Discover what our clients have to say about their transformed spaces
+            and how we brought their dreams to life.
+          </p>
+        </div>
+        <div className="flex   gap-5 self-center">
+          <button className="border-primary border h-fit p-3 min-w-[60px] ">
+            {/* <img
+              src={arrowIcon}
+              alt="arrow"
+              className="rotate-180 border border-primary  p-4 py-5"
+            /> */}
+            <WestIcon fontSize="medium"/>
+          </button>
+          <button className="border-primary border h-fit p-3 min-w-[60px] bg-primary">
+            {/* <img src={arrowIcon} alt="arrow" className="bg-primary  p-4 py-5" /> */}
+            <EastIcon fontSize="medium" sx={{color:"white"}}/>
+          </button>
+        </div>
       </div>
       <div className="flex flex-col md:flex-row  gap-6">
         {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className="group  relative grid pl-10 pt-10"
-
-          >
+          <div key={index} className="group  relative grid pl-10 pt-10">
             <div className=" z-10  w-[175px] h-[150px] absolute top-0 left-0">
               <img
                 src={quotes}
@@ -71,7 +78,9 @@ export default function ClientStories() {
                  transition-all duration-300 ease-linear`}
               />
             </div>
-            <div className={`bg-secondary p-6 mt-10 testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}>
+            <div
+              className={`bg-secondary p-6 mt-10 testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}
+            >
               <img
                 src={starRatings}
                 alt="starRatings"
@@ -81,8 +90,10 @@ export default function ClientStories() {
                 <p>{testimonial.review}</p>
                 <div className="mt-8 border-l-2 border-black p-2">
                   <div className="flex items-center gap-1">
-                  <div className={`w-0 h-0 group-hover:w-[15px] group-hover:h-[1.5px] group-hover:bg-black  transition-all duration-300 ease-linear`}></div>
-                  <p className="font-medium">  {testimonial.author}</p>
+                    <div
+                      className={`w-0 h-0 group-hover:w-[15px] group-hover:h-[1.5px] group-hover:bg-black  transition-all duration-300 ease-linear`}
+                    ></div>
+                    <p className="font-medium"> {testimonial.author}</p>
                   </div>
                   <p>{testimonial.authorType}</p>
                 </div>
@@ -90,7 +101,7 @@ export default function ClientStories() {
             </div>
           </div>
         ))}
-      </div>
+      </div></div>
     </section>
   );
 }

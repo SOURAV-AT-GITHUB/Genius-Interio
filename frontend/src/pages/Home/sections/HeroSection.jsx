@@ -28,7 +28,7 @@ export default function HeroSection() {
   }, []);
   return (
     <section id="home-hero-section" className="relative ">
-      <div className="relative w-full  h-full px-3 lg:px-16 ">
+      <div className="relative w-full  h-full p-4 lg:px-16">
         <div className="relative w-full overflow-hidden h-full rounded-[30px]">
           <div
             style={{
@@ -54,7 +54,7 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
-        <ul className="absolute bg-secondary p-1 px-3 rounded-3xl flex gap-1 z-10 -bottom-3 left-2/4 -translate-x-2/4">
+        <ul className="absolute bg-secondary p-1 px-3 rounded-3xl flex gap-1 z-10 bottom-2 left-2/4 -translate-x-2/4">
           {Array.from({ length: slides.length }).map((_, index) => (
             <div
               key={index}

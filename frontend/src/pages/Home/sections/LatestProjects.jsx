@@ -31,8 +31,9 @@ export default function LatestProjects() {
   return (
     <section
       id="home-latest-projects"
-      className="relative  p-3 lg:p-16 lg:pt-3"
+      className="relative  p-4 lg:px-16 lg:pt-6 lg:pb-12"
     >
+      <div className="lg:w-[90%] m-auto">
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 p-2">
         <h4 className="text-2xl font-semibold">Latest Project</h4>
         <ul className="flex gap-2 items-center ">
@@ -86,7 +87,7 @@ export default function LatestProjects() {
             </div>
           </div>
         ))}
-      </div>
+      </div></div>
     </section>
   );
 }

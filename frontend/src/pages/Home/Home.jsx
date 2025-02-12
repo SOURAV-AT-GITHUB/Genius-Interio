@@ -10,7 +10,7 @@ import HeroSection from "./sections/HeroSection";
 import Blogs from "./sections/Blogs";
 import LatestProjects from "./sections/LatestProjects";
 import OurSpecialityServices from "./sections/OurSpecialityServices";
-import Banner1 from "./sections/Banner1";
+// import Banner1 from "./sections/Banner1";
 import VideoSection from "./sections/VideoSection";
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <AboutUs />
       <LatestProjects />
       <OurSpecialityServices />
-      <Banner1 />
+      {/* <Banner1 /> */}
       <VideoSection />
       <WhyChooseUs />
       <WorkWithProfesional />

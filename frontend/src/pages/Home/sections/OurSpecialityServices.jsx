@@ -12,14 +12,11 @@ export default function OurSpecialityServices() {
         // {text:"Furnishing",icon:furnishingIcon},
       ];
   return (
-      <section id="home-our-speciality-services" className="w-full bg-secondary p-3 lg:p-16 lg:pt-3">
-        <div className="relative m-auto md:w-11/12 ">
-          <div className="flex items-center justify-between">
+      <section id="home-our-speciality-services" className="w-full bg-secondary p-4 lg:px-16 lg:py-6">
+        <div className="relative w-[90%] m-auto  flex flex-col items-center gap-4">
             <h4 className="text-2xl font-semibold">Our Speciality Services</h4>
-            <button className="bg-primary rounded-3xl text-white font-medium text-lg py-1 px-3">
-              Visit Us
-            </button>
-          </div>
+            
+          
           <div className="flex flex-col sm:flex-row  mt-5 gap-4">
             {specialty.map((item, index) => (
               <div
@@ -39,6 +36,9 @@ export default function OurSpecialityServices() {
               </div>
             ))}
           </div>
+          <button className="bg-primary rounded-3xl text-white font-medium text-lg py-1 px-3 min-w-[150px]">
+              Visit Us
+            </button>
         </div>
       </section>
   )

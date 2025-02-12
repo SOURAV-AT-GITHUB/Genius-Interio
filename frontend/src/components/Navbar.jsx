@@ -9,23 +9,59 @@ import { Drawer } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { NavHashLink } from "react-router-hash-link";
 import Button from "./Button";
-import homeIcon from "/Navbar/home.svg"
-import aboutIcon from "/Navbar/about.svg"
-import serviceIcon from "/Navbar/service.svg"
-import portfolioIcon from "/Navbar/portfolio.svg"
-import pagesIcon from "/Navbar/pages.svg"
-import blogsIcon from "/Navbar/blogs.svg"
-import contactIcon from "/Navbar/contact.svg"
+
+import modularKitchenIcon from "/Navbar/modular-kitchen.svg";
+import wardrobeIcon from "/Navbar/wardrobe.svg";
+import bathroomIcon from "/Navbar/bathroom.svg";
+import masterBedroomIcon from "/Navbar/master-bedroom.svg";
+import livingRoomIcon from "/Navbar/living-room.svg";
+import poojaRoomIcon from "/Navbar/pooja-room.svg";
+import tvUnitIcon from "/Navbar/tv-room.svg";
+import homeBarIcon from "/Navbar/home-bar.svg";
+import diningRoomIcon from "/Navbar/dining-room.svg";
+import tileDesignsIcon from "/Navbar/tiles-designs.svg";
+import wallpaperDesignsIcon from "/Navbar/wallpapers-designing.svg";
+import homeOfficeIcon from "/Navbar/home-office.svg";
+import falseCeilingIcon from "/Navbar/false-ceiling.svg";
+import flooringDesignsIcon from "/Navbar/flooring-designs.svg";
+import wallDecorIcon from "/Navbar/wall-decor.svg";
+import doorDesignsIcon from "/Navbar/door.svg";
 export default function Navbar() {
+  // const solutions = [
+  //   ["Modular Kitchen", "Wardrobe", "Bathroom", "Master Bedroom"],
+  //   ["Living Room", "Pooja Room", "TV Unit Designs", "Home Bar Unit"],
+  //   ["Dining Room", "Tile Designs", "Wallpaper Designs", "Home Office"],
+  //   [
+  //     "False Ceiling Designs",
+  //     "Flooring Designs",
+  //     "Wall Decor Ideas",
+  //     "Door Designs",
+  //   ],
+  // ];
   const solutions = [
-    ["Modular Kitchen", "Wardrobe", "Bathroom", "Master Bedroom"],
-    ["Living Room", "Pooja Room", "TV Unit Designs", "Home Bar Unit"],
-    ["Dining Room", "Tile Designs", "Wallpaper Designs", "Home Office"],
     [
-      "False Ceiling Designs",
-      "Flooring Designs",
-      "Wall Decor Ideas",
-      "Door Designs",
+      { text: "Modular Kitchen", icon: modularKitchenIcon },
+      { text: "Wardrobe", icon: wardrobeIcon },
+      { text: "Bathroom", icon: bathroomIcon },
+      { text: "Master Bedroom", icon: masterBedroomIcon },
+    ],
+    [
+      { text: "Living Room", icon: livingRoomIcon },
+      { text: "Pooja Room", icon: poojaRoomIcon },
+      { text: "TV Unit Designs", icon: tvUnitIcon },
+      { text: "Home Bar Unit", icon: homeBarIcon },
+    ],
+    [
+      { text: "Dining Room", icon: diningRoomIcon },
+      { text: "Tile Designs", icon: tileDesignsIcon },
+      { text: "Wallpaper Designs", icon: wallpaperDesignsIcon },
+      { text: "Home Office", icon: homeOfficeIcon },
+    ],
+    [
+      {text:"False Ceiling Designs",icon:falseCeilingIcon},
+      {text:"Flooring Designs",icon:flooringDesignsIcon},
+      {text:"Wall Decor Ideas",icon:wallDecorIcon},
+      {text:"Door Designs",icon:doorDesignsIcon},
     ],
   ];
   const [open, setOpen] = useState(false);
@@ -38,54 +74,46 @@ export default function Navbar() {
       </NavLink>
 
       <ul className="hidden lg:flex w-2/4 h-full  justify-center  items-center  ">
-        <li className="flex items-end gap-2 py-4 px-2 lg:px-4 ">
-          <NavLink to={"/"} className='flex'>
-            <img src={homeIcon} alt="home-icon" className="w-6 scale-105" />
+        <li className="py-4 px-2 lg:px-4 ">
+          <NavLink to={"/"}>
             <p>Home</p>{" "}
           </NavLink>
         </li>
-        <li className="flex items-end gap-2 py-4 px-2 lg:px-4 ">
+        <li className="py-4 px-2 lg:px-4 ">
           <NavHashLink
             to="/#home-about-us"
             scroll={(el) =>
               el.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className='flex'
           >
-            <img src={aboutIcon} alt="about-icon" className="w-6"/>
             <p>About</p>
           </NavHashLink>
         </li>
-        <li className="flex items-end gap-2 py-4 px-2 lg:px-4">
+        <li className="py-4 px-2 lg:px-4">
           <NavHashLink
             to={"/#home-our-speciality-services"}
             scroll={(el) =>
               el.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className='flex'
           >
-            <img src={serviceIcon} alt="service-icon" className="w-6" />
             <p>Service</p>{" "}
           </NavHashLink>
         </li>
-        <li className="flex items-end gap-2 py-4 px-2 lg:px-4">
+        <li className="py-4 px-2 lg:px-4">
           <NavHashLink
             to={"/#home-latest-projects"}
             scroll={(el) =>
               el.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className='flex'
           >
-            <img src={portfolioIcon} alt="portfolio-icon" className="w-6" />
             <p>Portfolio</p>{" "}
           </NavHashLink>
         </li>
 
         <li className="group  relative flex  gap-2 py-4 px-2 lg:px-4  border-b-4 border-transparent  group-hover:border-primary transition-all duration-300">
-          <img src={pagesIcon} alt="pages-icon" className="w-6" />
           <p>Pages</p>
           <KeyboardArrowDownIcon className="group-hover:text-primary group-hover:rotate-180 transform transition-transform  duration-300 ease-in-out self-center" />
-          <div className="absolute min-w-[65vw] min-h-[300px] p-8   top-[3.8rem] -right-96 z-[1] bg-white   grid-cols-5 gap-10 hidden group-hover:grid transition-opacity duration-300  ">
+          <div className="absolute min-w-[65vw] min-h-[300px] p-6   top-[3.8rem] -right-96 z-[1] bg-white   grid-cols-5 gap-4 hidden group-hover:grid transition-opacity duration-300  ">
             <div className="relative ">
               <img src={navImage1} alt="solution-image" className="h-full" />
               <img
@@ -103,16 +131,22 @@ export default function Navbar() {
               >
                 {column.map((solution) => (
                   <li
-                    key={solution}
+                    key={solution.text}
                     className="border-2 border-transparent hover:border-primary h-full flex flex-col justify-center pl-2 transition-all duration-500 ease-linear"
                   >
                     <Link
-                      to={`/design-solutions/${solution
+                      to={`/design-solutions/${solution.text
                         .split(" ")
                         .join("-")
                         .toLowerCase()}`}
+                      className="flex items-center gap-2 h-full"
                     >
-                      {solution}
+                      <img
+                        src={solution.icon}
+                        alt={solution}
+                        className="w-6"
+                      />
+                      <p>{solution.text}</p>
                     </Link>
                   </li>
                 ))}
@@ -120,7 +154,7 @@ export default function Navbar() {
             ))}
           </div>
         </li>
-        <li className="flex items-end gap-2 py-4 px-2 lg:px-4">
+        <li className="py-4 px-2 lg:px-4">
           <NavHashLink
             to={"/#home-blogs"}
             scroll={(el) =>
@@ -128,19 +162,16 @@ export default function Navbar() {
             }
             className="flex"
           >
-            <img src={blogsIcon} alt="blogs-icon" className="w-6" />
             <p>Blog</p>{" "}
           </NavHashLink>
         </li>
-        <li className="flex items-end gap-2 py-4 px-2 lg:px-4">
+        <li className="py-4 px-2 lg:px-4">
           <NavHashLink
             to={"/#home-get-in-touch"}
             scroll={(el) =>
               el.scrollIntoView({ behavior: "smooth", block: "start" })
             }
-            className='flex'
           >
-            <img src={contactIcon} alt="contact-icon" className="w-6" />
             <p>Contact</p>{" "}
           </NavHashLink>
         </li>
@@ -153,7 +184,7 @@ export default function Navbar() {
             el.scrollIntoView({ behavior: "smooth", block: "start" })
           }
         >
-          <Button text="Connect Now"/>
+          <Button text="Connect Now" />
         </NavHashLink>
       </div>
       <div className="lg:hidden" onClick={openDrawer}>
@@ -167,77 +198,65 @@ export default function Navbar() {
           <img src={logo} alt="" className="w-full my-2" />
           <ul className="flex flex-col gap-4 p-4 text-xl">
             <li onClick={closeDrawer}>
-            <NavLink to={"/"} className='flex'>
-            <img src={homeIcon} alt="home-icon" className="w-8" />
-            <p>Home</p>{" "}
-          </NavLink>
+              <NavLink to={"/"}>
+                <p>Home</p>{" "}
+              </NavLink>
             </li>
             <li onClick={closeDrawer}>
-            <NavHashLink
-            to="/#home-about-us"
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className='flex'
-          >
-            <img src={aboutIcon} alt="about-icon" className="w-6"/>
-            <p>About</p>
-          </NavHashLink>
+              <NavHashLink
+                to="/#home-about-us"
+                scroll={(el) =>
+                  el.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+              >
+                <p>About</p>
+              </NavHashLink>
             </li>
             <li onClick={closeDrawer}>
-            <NavHashLink
-            to={"/#home-our-speciality-services"}
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className='flex'
-          >
-            <img src={serviceIcon} alt="service-icon" className="w-6" />
-            <p>Service</p>{" "}
-          </NavHashLink>
+              <NavHashLink
+                to={"/#home-our-speciality-services"}
+                scroll={(el) =>
+                  el.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+              >
+                <p>Service</p>{" "}
+              </NavHashLink>
             </li>
             <li onClick={closeDrawer}>
-            <NavHashLink
-            to={"/#home-latest-projects"}
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className='flex'
-          >
-            <img src={portfolioIcon} alt="portfolio-icon" className="w-6" />
-            <p>Portfolio</p>{" "}
-          </NavHashLink>
+              <NavHashLink
+                to={"/#home-latest-projects"}
+                scroll={(el) =>
+                  el.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+              >
+                <p>Portfolio</p>{" "}
+              </NavHashLink>
             </li>
             <li onClick={closeDrawer}>
               <Link to={"/design-solutions/modular-kitchen"} className="flex">
-              <img src={pagesIcon} alt="pages-icon" className="w-6" />
-              <p>Pages</p>{" "}
-              
+                <p>Pages</p>{" "}
               </Link>
             </li>
             <li>
-            <NavHashLink
-            to={"/#home-blogs"}
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className="flex"
-          >
-            <img src={blogsIcon} alt="blogs-icon" className="w-6" />
-            <p>Blog</p>{" "}
-          </NavHashLink>
+              <NavHashLink
+                to={"/#home-blogs"}
+                scroll={(el) =>
+                  el.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+                className="flex"
+              >
+                <p>Blog</p>{" "}
+              </NavHashLink>
             </li>
             <li>
-            <NavHashLink
-            to={"/#home-get-in-touch"}
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-            className='flex'
-          >
-            <img src={contactIcon} alt="contact-icon" className="w-6" />
-            <p>Contact</p>{" "}
-          </NavHashLink>
+              <NavHashLink
+                to={"/#home-get-in-touch"}
+                scroll={(el) =>
+                  el.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+              >
+                <p>Contact</p>{" "}
+              </NavHashLink>
             </li>
           </ul>
           <div className="text-2xl w-full text-center" onClick={closeDrawer}>
@@ -247,8 +266,7 @@ export default function Navbar() {
                 el.scrollIntoView({ behavior: "smooth", block: "start" })
               }
             >
-              
-              <Button text="Connect Now"/>
+              <Button text="Connect Now" />
             </NavHashLink>
           </div>
         </div>
