@@ -1,29 +1,28 @@
-import testimonialImage1 from "/testimonials/testimonial1.jfif";
-import testimonialImage2 from "/testimonials/testimonial2.jfif";
-import testimonialImage3 from "/testimonials/testimonial3.jfif";
+// import testimonialImage1 from "/testimonials/testimonial1.jfif";
+// import testimonialImage2 from "/testimonials/testimonial2.jfif";
+// import testimonialImage3 from "/testimonials/testimonial3.jfif";
 import starRatings from "/testimonials/stars.svg";
 import quotes from "/testimonials/quotes.svg";
-import arrowIcon from "/testimonials/arrow.svg";
 import EastIcon from "@mui/icons-material/East";
 import WestIcon from "@mui/icons-material/West";
 export default function ClientStories() {
   const testimonials = [
     {
-      image: testimonialImage1,
+      // image: testimonialImage1,
       review:
         "Genius Interio turned our vision into reality! Our home feels like a dream now, with every corner reflecting our personality. The team was professional, creative, and attentive to every detail.",
       author: "Ananya S.",
       authorType: "Homeowner",
     },
     {
-      image: testimonialImage2,
+      // image: testimonialImage2,
       review:
         "Working with Genius Interio was a seamless experience. They perfectly balanced functionality and aesthetics in our living room design. We couldn’t be happier with the result!",
       author: "Megha & Kunal P.",
       authorType: "Business Owner",
     },
     {
-      image: testimonialImage3,
+      // image: testimonialImage3,
       review:
         "The Genius Interio team exceeded our expectations! From the initial consultation to the final execution, they delivered a stunning design that’s both practical and elegant.",
       author: "Priya R.",
@@ -69,14 +68,14 @@ export default function ClientStories() {
               <img
                 src={quotes}
                 alt="quotes"
-                className={`absolute ml-14 bottom-0 top-32 group-hover:top-0  transition-all duration-300 ease-linear`}
+                className={`absolute ml-14 bottom-0 top-32 transition-all duration-300 ease-linear`}
               />
-              <img
+              {/* <img
                 src={testimonial.image}
                 alt={testimonial.author}
                 className={`transform scale-x-[-1] absolute top-0 w-3/5 h-3/5 group-hover:h-full group-hover:w-full "
                  transition-all duration-300 ease-linear`}
-              />
+              /> */}
             </div>
             <div
               className={`bg-secondary p-6 mt-10 testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}
