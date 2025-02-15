@@ -1,19 +1,36 @@
 import { useEffect, useState } from "react";
 
-import heroSectionImage from "/heroSectionImage.jfif";
-
-
-
-
-// import furnishingIcon from '/About-Us/furnishing.svg'
-
-
-// import Button from "../../../components/Button";
-
 export default function HeroSection() {
-  const slides = [heroSectionImage, heroSectionImage, heroSectionImage];
-
-
+  const image1 = "/HeroSection/img1.JPG"
+  const image2 = "/HeroSection/img2.JPG"
+  const image3 = "/HeroSection/img3.JPG"
+  const image4 = "/HeroSection/img4.JPG"
+  const slides = [
+    {
+    title:"Home to beautiful interiors",
+    image:image1,
+    button:"BOOK FREE CONSULTATION",
+    href:"#home-get-in-touch"
+  },
+    {
+    title:"Want to know how much your kitchen interiors will cost?",
+    image:image2,
+    button:"CALCULATE NOW",
+    href:"/calculate-approximate-cost"
+  },
+    {
+    title:"Came to say hi to beautiful interiors",
+    image:image3,
+    button:"VISIT US",
+    href:"#home-get-in-touch"
+  },
+    {
+    title:"Transform Your Space with Stunning Interiors",
+    image:image4,
+    button:"",
+    href:null
+  },
+]
 
   const [activeSlide, setActiveSlide] = useState(0);
   useEffect(() => {
@@ -39,17 +56,21 @@ export default function HeroSection() {
               transition: "transform 0.75s ease-in-out",
             }}
           >
-            {slides.map((image, index) => (
+            {slides.map((slide, index) => (
               <div
                 key={index}
-                style={{ width: `${100 / slides.length}` }}
-                className={`max-h-[65vh] `}
+                style={{ width: `${100 / slides.length}%` }}
+                className={`max-h-[65vh] relative`}
               >
                 <img
-                  src={image}
+                  src={slide.image}
                   alt="heroSectionImage"
                   className="h-full object-cover object-center w-full"
                 />
+                <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] overflow-hidden flex flex-col justify-between items-center text-white text-center"> 
+                  <p className="text-3xl md:text-5xl font-semibold shadow-2xl">{slide.title}</p>
+               { slide.href &&  <a href={slide.href} className="bg-primary w-fit min-w-[150px]  p-3 px-5 rounded-full text-lg">{slide.button}</a >}
+                </div>
               </div>
             ))}
           </div>
