@@ -6,3 +6,6 @@
       --color-primary : #8D7C68;
       --color-secondary:#F0DEC9;
 }
+html{
+      scroll-behavior: smooth;
+}
