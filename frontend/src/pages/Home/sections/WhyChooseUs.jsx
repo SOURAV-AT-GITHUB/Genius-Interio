@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
   ];
   const [reverse, setReverse] = useState(false);
   const isMinWidth640 = useMediaQuery('(min-width:640px)')
-  console.log(isMinWidth640)
+
   useEffect(() => {
     let interval = setInterval(() => {
       setReverse((prev) => !prev);
