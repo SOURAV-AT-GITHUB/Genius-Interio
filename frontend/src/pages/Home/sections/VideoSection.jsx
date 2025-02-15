@@ -21,12 +21,8 @@ export default function VideoSection() {
       </video>
       <div className="flex items-center justify-between relative w-[90%] m-auto  p-4 lg:px-16 lg:py-6 ">
         <div>
-          <h4 className="md:text-3xl lg:text-5xl font-semibold">21K+</h4>
+          <h4 className="md:text-3xl lg:text-5xl font-semibold">5K+</h4>
           <p className="text-sm">Complete Projects</p>
-        </div>
-        <div>
-          <h4 className="md:text-3xl lg:text-5xl font-semibold">31+</h4>
-          <p className="text-sm">Award Wins</p>
         </div>
         <div>
           <h4 className="md:text-3xl lg:text-5xl font-semibold">60+</h4>
