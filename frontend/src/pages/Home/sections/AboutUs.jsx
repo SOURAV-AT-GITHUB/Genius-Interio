@@ -1,18 +1,16 @@
-import slideKitchen from "/About-Us/slide-kitchen.jfif";
-import slideBedroom from "/About-Us/slide-bedroom.jfif";
 import planningIcon from '/About-Us/planning.svg'
 import consultationIcon from '/About-Us/consultation.svg'
 import woodworkIcon from '/About-Us/woodwork.svg'
 import installationIcon from '/About-Us/installation.svg'
-// import furnishingIcon from '/About-Us/furnishing.svg'
 export default function AboutUs() {
-
+const image1 = "/About-Us/img1.JPG"
+const image2 = "/About-Us/img2.JPG"
   const steps = [
       {text:"3D Space Designing",icon:planningIcon},
       {text:"Architectural Designing",icon:consultationIcon},
       {text:"3D Model building",icon:woodworkIcon},
       {text:"Building The Space",icon:installationIcon},
-      // {text:"Furnishing",icon:furnishingIcon},
+
   ]
 
   return (
@@ -25,14 +23,14 @@ export default function AboutUs() {
       </h4>
       <div className="relative min-h-[400px]">
         <img
-          src={slideBedroom}
+          src={image1}
           alt="bedroom-image"
-          className="max-h-[350px] h-[70%] rounded-[20px]"
+          className="max-h-[350px] w-[70%] rounded-[20px] object-cover object-center"
         />
         <img
-          src={slideKitchen}
+          src={image2}
           alt="kitchen-image"
-          className="absolute h-[70%] pl-2 pt-2 bg-white right-0 bottom-0 max-h-[225px] rounded-[20px] ab"
+          className="absolute h-[70%] max-h-[250px] w-[45%] pl-2 pt-2 bg-white right-0 bottom-0  rounded-[20px] object-cover object-center"
         />
       </div>
     </div>
