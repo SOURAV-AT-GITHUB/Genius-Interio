@@ -6,7 +6,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Button from "../../components/Button";
 import axios from "axios";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const DATABASE_URL = import.meta.env.VITE_DATABASE_URL
 export default function DesignSolutions() {
   /*_________Static data_________ */
   const slideNavItems = [
@@ -96,16 +96,20 @@ export default function DesignSolutions() {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/images/${category}`);
-      setData(response.data.data)
+      const response = await axios.get(`${DATABASE_URL}/categories/${category}.json`);
+      if(response.data){
+        const images = Object.entries(response.data.images).map(([id,rest])=>({...rest}))
+       setData({...response.data,images})
+      }else{
+        setData(null)
+      }
     } catch (/*eslint-disable no-unused-vars*/error) {
       setData(null)
     }
   };
   useEffect(() => {
-    if(slideNavRef.current&&slideNavItems.some(item=>item.toLowerCase().split(' ').join('-') === category) ) {
+    if(slideNavRef.current && slideNavItems.some(item=>item.toLowerCase().split(' ').join('-') === category) ) {
       const index = slideNavItems.findIndex(item=>item.toLowerCase().split(' ').join('-') === category)
-      console.log(index)
       const nodeList = slideNavRef.current
       const node = nodeList.querySelectorAll("a > p")[index]
       node.scrollIntoView({
@@ -114,7 +118,6 @@ export default function DesignSolutions() {
         inline:"center"
       }
     )
-      console.log(node)
       getData()
     }else{
       setData(null)
