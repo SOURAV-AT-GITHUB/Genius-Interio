@@ -32,7 +32,7 @@ export default function ClientStories() {
 
   return (
     <section className=" p-4 lg:px-16 lg:py-12 ">
-      <div className="w-[90%] m-auto grid gap-6">
+      <div className="w-[90%] m-auto grid">
         
       
       <div className="flex flex-col md:flex-row gap-4  justify-between">
@@ -61,25 +61,30 @@ export default function ClientStories() {
           </button>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row  gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((testimonial, index) => (
-          <div key={index} className="group  relative grid pl-10 pt-10">
-            <div className=" z-10  w-[175px] h-[150px] absolute top-0 left-0">
+          <div key={index} className="group  relative grid pl-8 pt-5">
+            {/* <div className=" z-10  w-[175px] h-[150px] absolute top-0 left-0">
               <img
                 src={quotes}
                 alt="quotes"
                 className={`absolute ml-14 bottom-0 top-32 transition-all duration-300 ease-linear`}
               />
-              {/* <img
+              <img
                 src={testimonial.image}
                 alt={testimonial.author}
                 className={`transform scale-x-[-1] absolute top-0 w-3/5 h-3/5 group-hover:h-full group-hover:w-full "
                  transition-all duration-300 ease-linear`}
-              /> */}
-            </div>
+              />
+            </div> */}
             <div
-              className={`bg-secondary p-6 mt-10 testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}
+              className={`bg-secondary p-6  testimonial-border group-hover:before:h-full group-hover:before:w-full group-hover:before:top-[7px] group-hover:before:left-[7px]`}
             >
+                            <img
+                src={quotes}
+                alt="quotes"
+                className={`absolute top-10`}
+              />
               <img
                 src={starRatings}
                 alt="starRatings"
