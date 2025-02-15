@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import warrantyIcon from "/WhyChooseUs/warranty.svg";
+// import warrantyIcon from "/WhyChooseUs/warranty.svg";
 import guaranteeIcon from "/WhyChooseUs/guarantee.svg";
 import qualityChecksIcon from "/WhyChooseUs/qualityChecks.svg";
 import happyCustomersIcon from "/WhyChooseUs/happyCustomers.svg";
 import catalogueIcon from "/WhyChooseUs/catalogue.svg";
+import useMediaQuery from '@mui/material/useMediaQuery';
 export default function WhyChooseUs() {
   const sliderRef = useRef(null);
   const WhyChooseUs = [
-    {
-      text: "Flat 10-year warranty",
-      icon: warrantyIcon,
-    },
+    // {
+    //   text: "Flat 10-year warranty",
+    //   icon: warrantyIcon,
+    // },
     {
       text: "45-day move-in gurantee",
       icon: guaranteeIcon,
@@ -29,7 +30,8 @@ export default function WhyChooseUs() {
     },
   ];
   const [reverse, setReverse] = useState(false);
-
+  const isMinWidth640 = useMediaQuery('(min-width:640px)')
+  console.log(isMinWidth640)
   useEffect(() => {
     let interval = setInterval(() => {
       setReverse((prev) => !prev);
@@ -39,7 +41,7 @@ export default function WhyChooseUs() {
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.style.transform = reverse
-        ? "translateX(-25%)"
+        ? (isMinWidth640 ?"translateX(-15%)" : "translateX(-50%)")
         : "translateX(20%)";
     }
   }, [reverse]);
