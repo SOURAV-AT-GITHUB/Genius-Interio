@@ -58,10 +58,10 @@ export default function Navbar() {
       { text: "Home Office", icon: homeOfficeIcon },
     ],
     [
-      {text:"False Ceiling Designs",icon:falseCeilingIcon},
-      {text:"Flooring Designs",icon:flooringDesignsIcon},
-      {text:"Wall Decor Ideas",icon:wallDecorIcon},
-      {text:"Door Designs",icon:doorDesignsIcon},
+      { text: "False Ceiling Designs", icon: falseCeilingIcon },
+      { text: "Flooring Designs", icon: flooringDesignsIcon },
+      { text: "Wall Decor Ideas", icon: wallDecorIcon },
+      { text: "Door Designs", icon: doorDesignsIcon },
     ],
   ];
   const [open, setOpen] = useState(false);
@@ -74,45 +74,30 @@ export default function Navbar() {
       </NavLink>
 
       <ul className="hidden lg:flex w-2/4 h-full  justify-center  items-center  ">
-        <li className="py-4 px-2 lg:px-4 ">
+        <li>
           <NavLink to={"/"}>
-            <p>Home</p>{" "}
+            <p className="py-4 px-2 lg:px-4 ">Home</p>{" "}
           </NavLink>
         </li>
-        <li className="py-4 px-2 lg:px-4 ">
+        <li>
           <NavHashLink
             to="/#home-about-us"
             scroll={(el) =>
               el.scrollIntoView({ behavior: "smooth", block: "start" })
             }
           >
-            <p>About</p>
-          </NavHashLink>
-        </li>
-        <li className="py-4 px-2 lg:px-4">
-          <NavHashLink
-            to={"/#home-our-speciality-services"}
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-          >
-            <p>Service</p>{" "}
-          </NavHashLink>
-        </li>
-        <li className="py-4 px-2 lg:px-4">
-          <NavHashLink
-            to={"/#home-latest-projects"}
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-          >
-            <p>Portfolio</p>{" "}
+            <p className="py-4 px-2 lg:px-4">About</p>
           </NavHashLink>
         </li>
 
-        <li className="group  relative flex  gap-2 py-4 px-2 lg:px-4  border-b-4 border-transparent  group-hover:border-primary transition-all duration-300">
-          <p>Pages</p>
-          <KeyboardArrowDownIcon className="group-hover:text-primary group-hover:rotate-180 transform transition-transform  duration-300 ease-in-out self-center" />
+        <li className="group  relative  group-hover:border-primary transition-all duration-300">
+          <a
+            href="/design-solutions/modular-kitchen"
+            className="flex  gap-2  py-4 px-2 lg:px-4"
+          >
+            <p>Services</p>
+            <KeyboardArrowDownIcon className="group-hover:text-primary group-hover:rotate-180 transform transition-transform  duration-300 ease-in-out self-center" />
+          </a>
           <div className="absolute min-w-[65vw] min-h-[300px] p-6   top-[3.8rem] -right-96 z-[1] bg-white   grid-cols-5 gap-4 hidden group-hover:grid transition-opacity duration-300  ">
             <div className="relative ">
               <img src={navImage1} alt="solution-image" className="h-full" />
@@ -141,11 +126,7 @@ export default function Navbar() {
                         .toLowerCase()}`}
                       className="flex items-center gap-2 h-full"
                     >
-                      <img
-                        src={solution.icon}
-                        alt={solution}
-                        className="w-6"
-                      />
+                      <img src={solution.icon} alt={solution} className="w-6" />
                       <p>{solution.text}</p>
                     </Link>
                   </li>
@@ -154,7 +135,19 @@ export default function Navbar() {
             ))}
           </div>
         </li>
-        <li className="py-4 px-2 lg:px-4">
+
+        <li>
+          <NavHashLink
+            to={"/#home-latest-projects"}
+            scroll={(el) =>
+              el.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+          >
+            <p className="py-4 px-2 lg:px-4">Portfolio</p>{" "}
+          </NavHashLink>
+        </li>
+
+        <li>
           <NavHashLink
             to={"/#home-blogs"}
             scroll={(el) =>
@@ -162,17 +155,18 @@ export default function Navbar() {
             }
             className="flex"
           >
-            <p>Blog</p>{" "}
+            <p className="py-4 px-2 lg:px-4">Blog</p>{" "}
           </NavHashLink>
         </li>
-        <li className="py-4 px-2 lg:px-4">
+
+        <li>
           <NavHashLink
             to={"/#home-get-in-touch"}
             scroll={(el) =>
               el.scrollIntoView({ behavior: "smooth", block: "start" })
             }
           >
-            <p>Contact</p>{" "}
+            <p className="py-4 px-2 lg:px-4">Contact</p>{" "}
           </NavHashLink>
         </li>
       </ul>
