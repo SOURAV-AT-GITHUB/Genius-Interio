@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import image1 from "/HeroSection/img1.jpg"
-import image2 from "/HeroSection/img1.jpg"
-import image3 from "/HeroSection/img1.jpg"
-import image4 from "/HeroSection/img1.jpg"
+import image2 from "/HeroSection/img2.jpg"
+import image3 from "/HeroSection/img3.jpg"
+import image4 from "/HeroSection/img4.jpg"
 export default function HeroSection() {
   const slides = [
     {
