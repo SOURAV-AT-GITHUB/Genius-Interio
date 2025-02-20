@@ -207,14 +207,9 @@ export default function Navbar() {
               </NavHashLink>
             </li>
             <li onClick={closeDrawer}>
-              <NavHashLink
-                to={"/#home-our-speciality-services"}
-                scroll={(el) =>
-                  el.scrollIntoView({ behavior: "smooth", block: "start" })
-                }
-              >
-                <p>Service</p>{" "}
-              </NavHashLink>
+              <Link to={"/design-solutions/modular-kitchen"} className="flex">
+                <p>Services</p>{" "}
+              </Link>
             </li>
             <li onClick={closeDrawer}>
               <NavHashLink
@@ -226,11 +221,7 @@ export default function Navbar() {
                 <p>Portfolio</p>{" "}
               </NavHashLink>
             </li>
-            <li onClick={closeDrawer}>
-              <Link to={"/design-solutions/modular-kitchen"} className="flex">
-                <p>Pages</p>{" "}
-              </Link>
-            </li>
+
             <li>
               <NavHashLink
                 to={"/#home-blogs"}
