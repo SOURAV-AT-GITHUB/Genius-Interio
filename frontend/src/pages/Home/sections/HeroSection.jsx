@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-
+import image1 from "/HeroSection/img1.jpg"
+import image2 from "/HeroSection/img1.jpg"
+import image3 from "/HeroSection/img1.jpg"
+import image4 from "/HeroSection/img1.jpg"
 export default function HeroSection() {
-  const image1 = "/HeroSection/img1.JPG"
-  const image2 = "/HeroSection/img2.JPG"
-  const image3 = "/HeroSection/img3.JPG"
-  const image4 = "/HeroSection/img4.JPG"
   const slides = [
     {
     title:"Home to beautiful interiors",
@@ -33,19 +32,22 @@ export default function HeroSection() {
 ]
 
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused,setIsPaused] = useState(false)
   useEffect(() => {
-    const interval = setInterval(() => {
+    let interval
+    if(!isPaused){
+     interval = setInterval(() => {
       setActiveSlide((prev) => {
         if (prev < slides.length - 1) return prev + 1;
         else if (prev >= slides.length) return 0;
         else return 0;
       });
-    }, 1500);
+    }, 1500);}
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
   return (
     <section id="home-hero-section" className="relative ">
-      <div className="relative w-full  h-full p-4 lg:px-16">
+      <div onMouseEnter={()=>setIsPaused(true)} onMouseLeave={()=>setIsPaused(false)} className="relative w-full  h-full p-4 lg:px-16">
         <div className="relative w-full overflow-hidden h-full rounded-[30px]">
           <div
             style={{
@@ -67,9 +69,9 @@ export default function HeroSection() {
                   alt="heroSectionImage"
                   className="h-full object-cover object-center w-full"
                 />
-                <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] overflow-hidden flex flex-col justify-between items-center text-white text-center"> 
-                  <p className="text-3xl md:text-5xl font-semibold shadow-2xl">{slide.title}</p>
-               { slide.href &&  <a href={slide.href} className="bg-primary w-fit min-w-[150px]  p-3 px-5 rounded-full text-lg">{slide.button}</a >}
+                <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] w-full overflow-hidden flex flex-col gap-4 justify-between items-center text-white text-center"> 
+                  <p className="text-xl sm:text-3xl md:text-5xl font-semibold shadow-2xl">{slide.title}</p>
+               { slide.href &&  <a href={slide.href} className="bg-primary w-fit min-w-[150px] p-2 sm:p-3 sm:px-5 rounded-full text-sm sm:text-lg">{slide.button}</a >}
                 </div>
               </div>
             ))}
@@ -86,16 +88,6 @@ export default function HeroSection() {
           ))}
         </ul>
       </div>
-
-
-
-
-
-
-
-
-
-
 
 
     </section>
