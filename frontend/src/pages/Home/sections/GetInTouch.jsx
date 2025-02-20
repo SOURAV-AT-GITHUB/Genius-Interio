@@ -22,12 +22,12 @@ export default function GetInTouch() {
         <form action="" className="flex flex-col md:grid grid-cols-2 justify-between gap-4  md:gap-10">
           <input
             type="text"
-            placeholder="Last Name"
+            placeholder="First Name"
             className="border border-primary p-2 pl-5  text-lg "
           />
           <input
             type="text"
-            placeholder="First Name"
+            placeholder="Last Name"
             className="border border-primary p-2 pl-5  text-lg "
           />
           <input
