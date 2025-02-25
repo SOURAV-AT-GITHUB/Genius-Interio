@@ -4,52 +4,56 @@ import image2 from "/HeroSection/img2.jpg"
 import image3 from "/HeroSection/img3.jpg"
 import image4 from "/HeroSection/img4.jpg"
 export default function HeroSection() {
+
   const slides = [
     {
-    title:"Home to beautiful interiors",
-    image:image1,
-    button:"BOOK FREE CONSULTATION",
-    href:"#home-get-in-touch"
-  },
+      title: "Home to beautiful interiors",
+      image: image1,
+      button: "BOOK FREE CONSULTATION",
+      href: "#home-get-in-touch",
+    },
     {
-    title:"Want to know how much your kitchen interiors will cost?",
-    image:image2,
-    button:"CALCULATE NOW",
-    href:"/calculate-approximate-cost"
-  },
+      title: "Want to know how much your kitchen interiors will cost?",
+      image: image2,
+      button: "CALCULATE NOW",
+      href: "/calculate-approximate-cost",
+    },
     {
-    title:"Came to say hi to beautiful interiors",
-    image:image3,
-    button:"VISIT US",
-    href:"#home-get-in-touch"
-  },
+      title: "Came to say hi to beautiful interiors",
+      image: image3,
+      button: "VISIT US",
+      href: "#home-get-in-touch",
+    },
     {
-    title:"Transform Your Space with Stunning Interiors",
-    image:image4,
-    button:"",
-    href:null
-  },
-]
+      title: "Transform Your Space with Stunning Interiors",
+      image: image4,
+      button: "",
+      href: null,
+    },
+  ];
 
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused,setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
-    let interval
-    if(!isPaused){
-     interval = setInterval(() => {
-      setActiveSlide((prev) => {
-        if (prev < slides.length - 1) return prev + 1;
-        else if (prev >= slides.length) return 0;
-        else return 0;
-      });
-    }, 1500);}
+    let interval;
+    if (!isPaused) {
+      interval = setInterval(() => {
+        setActiveSlide((prev) => {
+          if (prev < slides.length - 1) return prev + 1;
+          else if (prev >= slides.length) return 0;
+          else return 0;
+        });
+      }, 1500);
+    }
     return () => clearInterval(interval);
   }, [isPaused]);
   return (
     <section id="home-hero-section" className="relative ">
-      <div onMouseEnter={()=>setIsPaused(true)} onMouseLeave={()=>setIsPaused(false)} className="relative w-full  h-full p-4 lg:px-16">
+      <div className="relative w-full  h-full p-4 lg:px-16">
         <div className="relative w-full overflow-hidden h-full rounded-[30px]">
           <div
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
             style={{
               display: "flex",
               width: `${100 * slides.length}%`,
@@ -68,10 +72,20 @@ export default function HeroSection() {
                   src={slide.image}
                   alt="heroSectionImage"
                   className="h-full object-cover object-center w-full"
+                  loading="lazy"
                 />
-                <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] w-full overflow-hidden flex flex-col gap-4 justify-between items-center text-white text-center"> 
-                  <p className="text-xl sm:text-3xl md:text-5xl font-semibold shadow-2xl">{slide.title}</p>
-               { slide.href &&  <a href={slide.href} className="bg-primary w-fit min-w-[150px] p-2 sm:p-3 sm:px-5 rounded-full text-sm sm:text-lg">{slide.button}</a >}
+                <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] w-full overflow-hidden flex flex-col gap-4 justify-between items-center text-white text-center">
+                  <p className="text-xl sm:text-3xl md:text-5xl font-semibold shadow-2xl">
+                    {slide.title}
+                  </p>
+                  {slide.href && (
+                    <a
+                      href={slide.href}
+                      className="bg-primary w-fit min-w-[150px] p-2 sm:p-3 sm:px-5 rounded-full text-sm sm:text-lg"
+                    >
+                      {slide.button}
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -88,8 +102,6 @@ export default function HeroSection() {
           ))}
         </ul>
       </div>
-
-
     </section>
   );
 }
