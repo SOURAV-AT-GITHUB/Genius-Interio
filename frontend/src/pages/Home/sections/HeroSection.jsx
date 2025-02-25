@@ -32,7 +32,7 @@ export default function HeroSection() {
     },
   ];
 
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
     let interval;
@@ -71,11 +71,11 @@ export default function HeroSection() {
                 <img
                   src={slide.image}
                   alt="heroSectionImage"
-                  className="h-full object-cover object-center w-full"
+                  className="h-full object-cover object-center w-full contrast-[50%]"
                   loading="lazy"
                 />
                 <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] w-full overflow-hidden flex flex-col gap-4 justify-between items-center text-white text-center">
-                  <p className="text-xl sm:text-3xl md:text-5xl font-semibold shadow-2xl">
+                  <p className=" p-2 rounded-md text-xl sm:text-3xl md:text-5xl font-semibold shadow-2xl">
                     {slide.title}
                   </p>
                   {slide.href && (
