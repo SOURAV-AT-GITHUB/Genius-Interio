@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <main className="relative">
       {isMinWidth500 ? (
-        <div className="fixed right-0 bottom-0 w-fit h-fit z-10 flex flex-col">
+        <div className="fixed right-0 bottom-14 w-fit h-fit z-10 flex flex-col">
           <a
             href="https://wa.me/+919899878932?text=Hello%20there"
             target="_blank"
@@ -37,7 +37,7 @@ export default function Home() {
           </a>
         </div>
       ) : (
-        <div className={`fixed right-0 bottom-2  z-10  `}>
+        <div className={`fixed right-0 bottom-20  z-10  `}>
           <div
             className={`${
               isOpen ? "h-auto " : "h-0"
@@ -71,7 +71,7 @@ export default function Home() {
 
           <button
             onClick={toggleMenu}
-            className="bg-primary text-white p-3 ml-3  rounded-l-lg z-10 shadow-2xl border border-secondary"
+            className="bg-primary text-white p-3 ml-3  rounded-l-lg z-10 shadow-2xl border border-secondary "
           >
             <PermPhoneMsgIcon fontSize="large" />
           </button>

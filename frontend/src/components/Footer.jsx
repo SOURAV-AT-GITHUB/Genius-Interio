@@ -50,7 +50,7 @@ export default function Footer() {
         ))}
       </div>
       <hr className="mt-10"/>
-      <p className="text-center mt-10 text-white tracking-wider text-sm">2024 © All rights reserved by Genius Interio Pvt. Ltd.</p>
+      <p className="text-center mt-10 pb-16 lg:pb-0 text-white tracking-wider text-sm">2024 © All rights reserved by Genius Interio Pvt. Ltd.</p>
     </footer>
   );
 }
