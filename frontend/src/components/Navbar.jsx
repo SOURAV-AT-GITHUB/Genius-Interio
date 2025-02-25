@@ -182,7 +182,7 @@ export default function Navbar() {
 
 
       <div className="fixed lg:hidden border border-slate-300 z-20  justify-between bg-white bottom-0 left-0 right-0">
-<ul className="max-w-[500px] m-auto flex justify-between  items-center  ">
+<ul className="max-w-[500px] text-[10px] min-[400px]:text-base m-auto flex justify-between  items-center  ">
         <li className="p-2">
           <NavLink to={"/"}>
             <img src={HomeIcon} alt="" className="h-6 m-auto"/>
