@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Alert, CircularProgress, Modal } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import CloseIcon from "@mui/icons-material/Close";
@@ -13,34 +13,22 @@ import {
 } from "../../store/actions";
 
 const slideNavItems = [
-  "Kitchen",
+  "Modular Kitchen",
   "Master Bedroom",
-  "Living room",
+  "Living Room",
   "Bathroom",
-  "Homes by Genius Interio",
   "Wardrobe",
-  "Study Room Designs",
-  "Kid's Bedroom",
   "TV Unit Designs",
   "Pooja Room",
   "False Ceiling Designs",
-  "Space Saving Designs",
   "Dining Room",
-  "Foyer",
-  "Guest Bedroom",
   "Home Office",
-  "Kitchen Sink Designs",
-  "Balcony",
   "Tile Designs",
   "Wallpaper Designs",
-  "Wall Paint Designs",
   "Wall Decor Ideas",
   "Flooring Designs",
-  "Window Designs",
   "Door Designs",
-  "Staircase Designs",
-  "Crockery Unit Designs",
-  "Home Bar Designs",
+  "Home Bar unit",
 ];
 export default function Admin() {
   const adminPanelData = useSelector((store) => store.adminPanel);
