@@ -50,9 +50,10 @@ export default function Blogs() {
           </div>
         ))}
       </div>
-      <button className="text-lg px-3 text-white bg-primary rounded-2xl">
+      {/* <button className="text-lg px-3 text-white bg-primary rounded-2xl">
         See More
-      </button></div>
+      </button> */}
+      </div>
     </section>
   );
 }
