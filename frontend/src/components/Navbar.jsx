@@ -65,11 +65,11 @@ export default function Navbar() {
   // const closeDrawer = () => setOpen(false);
   return (
     <nav className="max-w-[100vw] w-full p-2 gap-2  xl:px-12   bg-white flex items-center justify-between xl:justify-center  border-b ">
-      <NavLink to="/" className="w-2/4  lg:w-1/6">
+      <NavLink to="/" className="w-2/4  md:w-2/5 xl:w-1/4">
         <img src={logo} alt="logo" className="object-cover object-center " />
       </NavLink>
 
-      <ul className="hidden lg:flex w-2/4 h-full  justify-center  items-center  ">
+      <ul className="hidden lg:flex w-2/4 h-full xl:text-lg  justify-center  items-center  ">
         <li>
           <NavLink to={"/"}>
             <p className="py-4 px-2 lg:px-4 ">Home</p>{" "}
