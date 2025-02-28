@@ -32,7 +32,7 @@ export default function HeroSection() {
     },
   ];
 
-  const [activeSlide, setActiveSlide] = useState(3);
+  const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
     let interval;
