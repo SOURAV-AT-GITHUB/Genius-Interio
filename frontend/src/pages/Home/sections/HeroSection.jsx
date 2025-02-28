@@ -71,7 +71,7 @@ export default function HeroSection() {
                 <img
                   src={slide.image}
                   alt="heroSectionImage"
-                  className="h-full object-cover object-center w-full contrast-[50%]"
+                  className="h-full object-cover object-center w-full"
                   loading="lazy"
                 />
                 <div className="absolute  bottom-12 left-2/4 -translate-x-2/4 min-h-[35%] w-full overflow-hidden flex flex-col gap-4 justify-between items-center text-white text-center">
