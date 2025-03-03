@@ -157,7 +157,7 @@ export default function Admin() {
   };
   useEffect(() => {
     if(!token) navigate("/signin")
-  }, [token]);
+  }, [token,navigate]);
   return (
     <main className="p-10">
       <h2 className="text-5xl text-center p-4">Admin Panel</h2>
