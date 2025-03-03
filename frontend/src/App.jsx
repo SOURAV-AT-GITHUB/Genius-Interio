@@ -8,6 +8,7 @@ import CalculateApproximateCost from "./pages/Calculate-Approximate-Cost/Calcula
 import DesignSolutions from "./pages/Design-Solutions/DesignSolutions";
 import RedirectToHome from "./components/RedirectToHome";
 import Admin from "./pages/Admin/Admin";
+import SignIn from "./pages/Admin/SignIn";
 
 function App() {
   const [location,setLocation] = useState('/')
@@ -29,6 +30,7 @@ function App() {
         <Route path="calculate-approximate-cost" element={<CalculateApproximateCost/>}/>
         <Route path="design-solutions/:category" element={<DesignSolutions/>}/>
         <Route path="admin" element={<Admin/>}/>
+        <Route path="signin" element={<SignIn/>}/>
         <Route path="*" element={<RedirectToHome/>}/>
       </Routes>
     { location !== '/calculate-approximate-cost' && <Footer/>}

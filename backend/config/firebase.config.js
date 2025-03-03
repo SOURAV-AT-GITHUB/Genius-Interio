@@ -13,7 +13,7 @@ admin.initializeApp({
 });
 const database = admin.database();
 const bucket = admin.storage().bucket();
-const databaseBasePath = "Gilman_interior/categories";
+const databaseBasePath = "Gilman_interior";
 const storageBasePath = "Gilman Interior";
 
 module.exports ={database,bucket,databaseBasePath,storageBasePath}

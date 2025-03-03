@@ -8,11 +8,12 @@ const {
 } = require("../config/firebase.config");
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
-imagesRouter.get("/:category", async (req, res) => {
+const verifyToken = require("../middleware/verifyToken")
+imagesRouter.get("/:category",verifyToken, async (req, res) => {
   const { category } = req.params;
   try {
     const snapshot = await database
-      .ref(`${databaseBasePath}/${category}`)
+      .ref(`${databaseBasePath}/categories/${category}`)
       .once("value");
       if (snapshot.exists()) {
       const { title, description } = snapshot.val();
@@ -32,7 +33,7 @@ imagesRouter.get("/:category", async (req, res) => {
     res.status(500).send({ error: error.message });
   }
 });
-imagesRouter.post("/:category", upload.single("file"), async (req, res) => {
+imagesRouter.post("/:category",verifyToken, upload.single("file"), async (req, res) => {
   const { category } = req.params;
   const title = req.body.title || null;
   const size = req.body.size || null;
@@ -57,7 +58,7 @@ imagesRouter.post("/:category", upload.single("file"), async (req, res) => {
     });
     const imageDetails = { title, size, image: url[0],storagePath };
     const imageRefDb = database
-      .ref(`${databaseBasePath}/${category}/images`)
+      .ref(`${databaseBasePath}/categories/${category}/images`)
       .push();
     await imageRefDb.set(imageDetails);
     res.status(201).json({
@@ -68,7 +69,7 @@ imagesRouter.post("/:category", upload.single("file"), async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-imagesRouter.patch("/update-title-desc/:category", async (req, res) => {
+imagesRouter.patch("/update-title-desc/:category",verifyToken, async (req, res) => {
   const { title } = req.body || {title:null};
   const {  description } = req.body || {description:null};
   const { category } = req.params;
@@ -79,7 +80,7 @@ imagesRouter.patch("/update-title-desc/:category", async (req, res) => {
     let updatedData = {};
     if (title) updatedData.title = title;
     if (description) updatedData.description = description;
-    await database.ref(`${databaseBasePath}/${category}`).update(updatedData);
+    await database.ref(`${databaseBasePath}/categories/${category}`).update(updatedData);
     if (title && description)
       return res.json({ message: "Title and description updated" });
     else if (title && !description)
@@ -93,9 +94,9 @@ imagesRouter.patch("/update-title-desc/:category", async (req, res) => {
       .json({ message: "Internal server error, please try again" });
   }
 });
-imagesRouter.delete("/:category/:id",async(req,res)=>{
+imagesRouter.delete("/:category/:id",verifyToken,async(req,res)=>{
   const {category,id} = req.params
-  const imageRefDb = database.ref(`${databaseBasePath}/${category}/images/${id}`)
+  const imageRefDb = database.ref(`${databaseBasePath}/categories/${category}/images/${id}`)
   const snapshot = await imageRefDb.once('value')
   if(!snapshot.exists()){
     return res.status(404).json({ message: 'Image not found' });

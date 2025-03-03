@@ -12,6 +12,10 @@ import {
   ADD_NEW_IMAGE_REQUEST,
   ADD_NEW_IMAGE_SUCCESS,
   ADD_NEW_IMAGE_FAILURE,
+  SIGN_IN_REQUEST,
+  SIGN_IN_SUCCESS,
+  SIGN_IN_ERROR,
+  FORCE_SIGN_OUT,
 } from "./actionTypes";
 
 const defaultAdminPanelState = {
@@ -32,7 +36,7 @@ export const adminPanelReducer = (
     case GET_ADMIN_PANEL_DATA_REQUEST:
     case UPDATE_ADMIN_PANEL_DATA_REQUEST:
     case DELETE_IMAGE_DATA_REQUEST:
-      case ADD_NEW_IMAGE_REQUEST: {
+    case ADD_NEW_IMAGE_REQUEST: {
       return { ...state, isLoading: true, isError: null };
     }
     case GET_ADMIN_PANEL_DATA_SUCCESS:
@@ -48,15 +52,47 @@ export const adminPanelReducer = (
         images: updatedImages,
       };
     }
-    case ADD_NEW_IMAGE_SUCCESS:{
-      state.images.push(payload)
-      return {...state,isLoading:false,isError:null}
+    case ADD_NEW_IMAGE_SUCCESS: {
+      state.images.push(payload);
+      return { ...state, isLoading: false, isError: null };
     }
     case GET_ADMIN_PANEL_DATA_FAILURE:
     case UPDATE_ADMIN_PANEL_DATA_FAILURE:
     case DELETE_IMAGE_DATA_FAILURE:
-      case ADD_NEW_IMAGE_FAILURE:
+    case ADD_NEW_IMAGE_FAILURE:
       return { ...state, isLoading: false, isError: payload };
+    default:
+      return state;
+  }
+};
+
+const defaultAuthState = {
+  isAuthLoading: false,
+  token: localStorage.getItem("auth") || null,
+  isAuthError: null,
+};
+export const authReducer = (state = defaultAuthState, { type, payload }) => {
+  switch (type) {
+    case SIGN_IN_REQUEST:
+      return (state = { ...defaultAuthState, isAuthLoading: true });
+    case SIGN_IN_SUCCESS:{
+      localStorage.setItem('auth',payload)
+      return (state = {
+        isAuthLoading: false,
+        token: payload,
+        isAuthError: null,
+      });}
+    case SIGN_IN_ERROR:{
+      
+      return (state = {
+        isAuthLoading: false,
+        token: null,
+        isAuthError: payload,
+      });}
+      case FORCE_SIGN_OUT: {
+        localStorage.removeItem("auth")
+        return state = {...defaultAuthState,isAuthError:payload}
+      }
     default:
       return state;
   }

@@ -13,6 +13,10 @@ import {
   ADD_NEW_IMAGE_REQUEST,
   ADD_NEW_IMAGE_SUCCESS,
   ADD_NEW_IMAGE_FAILURE,
+  SIGN_IN_REQUEST,
+  SIGN_IN_SUCCESS,
+  SIGN_IN_ERROR,
+  FORCE_SIGN_OUT,
 } from "./actionTypes";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -61,20 +65,23 @@ export const updateAdminPanelCategory = (category) => {
     dispatch({ type: ADMIN_PANEL_CATEGORY_CHANGE, payload: category });
   };
 };
-export const getAdminPanelDataAction = ({ category = null, openSnackbar }) => {
+export const getAdminPanelDataAction = ({ category = null, openSnackbar },token) => {
   return async (dispatch) => {
     dispatch(getAdminPanelDataRequest());
     try {
-      const response = await axios.get(`${BACKEND_URL}/images/${category}`);
+      const response = await axios.get(`${BACKEND_URL}/images/${category}`,{headers:{Authorization:`Bearer ${token}`}});
       dispatch(getAdminPanelDataSuccess(response.data.data));
       openSnackbar("Data Loaded.", "success");
     } catch (error) {
+      if(error.status===401){
+        dispatch({type:FORCE_SIGN_OUT,payload: error.response?.data.message||error.message})
+      }
       dispatch(
         getAdminPanelDataFailure(
           error.response?.data.message || "Please check you network connection."
         )
       );
-      console.log(error);
+
       openSnackbar(
         error.response?.data.message || "Please check your network connection.",
         "error"
@@ -87,18 +94,21 @@ export const updateTitleDescription = ({
   category,
   openSnackbar,
   resetHeadingEditorModal,
-}) => {
+},token) => {
   return async (dispatch) => {
     dispatch(updateAdminPanelDataRequest());
     try {
       const response = await axios.patch(
         `${BACKEND_URL}/images/update-title-desc/${category}`,
-        newData
+        newData,{headers:{Authorization:`Bearer ${token}`}}
       );
       dispatch(updateAdminPanelDataSuccess(newData));
       openSnackbar(response.data.message, "success");
       resetHeadingEditorModal();
     } catch (error) {
+      if(error.status===401){
+        dispatch({type:FORCE_SIGN_OUT,payload: error.response?.data.message||error.message})
+      }
       dispatch(
         updateAdminPanelDataFailure(
           error.response?.data.message || "No internet connection"
@@ -111,17 +121,25 @@ export const updateTitleDescription = ({
     }
   };
 };
-export const deleteImage = ({ category, id, openSnackbar,resetImageDeleteModal }) => {
+export const deleteImage = ({
+  category,
+  id,
+  openSnackbar,
+  resetImageDeleteModal,
+},token) => {
   return async (dispatch) => {
     dispatch(deleteImageRequest());
     try {
       const response = await axios.delete(
-        `${BACKEND_URL}/images/${category}/${id}`
+        `${BACKEND_URL}/images/${category}/${id}`,{headers:{Authorization:`Bearer ${token}`}}
       );
       dispatch(deleteImageSuccess(id));
       openSnackbar(response.data.message, "success");
-      resetImageDeleteModal()
+      resetImageDeleteModal();
     } catch (error) {
+      if(error.status===401){
+        dispatch({type:FORCE_SIGN_OUT,payload: error.response?.data.message||error.message})
+      }
       dispatch(
         deleteImageFailure(
           error.response?.data.message ||
@@ -136,22 +154,60 @@ export const deleteImage = ({ category, id, openSnackbar,resetImageDeleteModal }
     }
   };
 };
-export const addNewImage = ({ title, size = null, image,category, openSnackbar,resetAddNewImageModal }) => {
+export const addNewImage = ({
+  title,
+  size = null,
+  image,
+  category,
+  openSnackbar,
+  resetAddNewImageModal,
+},token) => {
   return async (dispatch) => {
     dispatch(addNewImageRequest());
     try {
-      const formData = new FormData()
-      formData.append("title",title)
-     if(size) formData.append("size",size)
-      formData.append('file',image)
-    const response = await axios.post(`${BACKEND_URL}/images/${category}`,formData)
+      const formData = new FormData();
+      formData.append("title", title);
+      if (size) formData.append("size", size);
+      formData.append("file", image);
+      const response = await axios.post(
+        `${BACKEND_URL}/images/${category}`,
+        formData,{headers:{Authorization:`Bearer ${token}`}}
+      );
 
-    dispatch(addNewImageSuccess(response.data.data))
-    openSnackbar(response.data.message,'success')
-    resetAddNewImageModal()
+      dispatch(addNewImageSuccess(response.data.data));
+      openSnackbar(response.data.message, "success");
+      resetAddNewImageModal();
     } catch (error) {
-      dispatch(addNewImageFailure(error.response?.data.message || "Something went wrong"))
-      openSnackbar(error.response?.data.message || "Something went wrong",'error')
+      if(error.status===401){
+        dispatch({type:FORCE_SIGN_OUT,payload: error.response?.data.message||error.message})
+      }
+      dispatch(
+        addNewImageFailure(
+          error.response?.data.message || "Something went wrong"
+        )
+      );
+      openSnackbar(
+        error.response?.data.message || "Something went wrong",
+        "error"
+      );
+    }
+  };
+};
+export const adminSignin = ({ email, password }) => {
+  return async (dispatch) => {
+    dispatch({ type: SIGN_IN_REQUEST });
+    try {
+      const response = await axios.post(`${BACKEND_URL}/admin`, {
+        email,
+        password,
+      });
+      dispatch({ type: SIGN_IN_SUCCESS, payload: response.data.token });
+    } catch (error) {
+        dispatch({
+          type: SIGN_IN_ERROR,
+          payload: error.response?.data.message || error.message,
+        });
+      
     }
   };
 };

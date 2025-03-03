@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { Alert, CircularProgress, Modal } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import CloseIcon from "@mui/icons-material/Close";
@@ -11,6 +11,7 @@ import {
   deleteImage,
   addNewImage,
 } from "../../store/actions";
+import { useNavigate } from "react-router-dom";
 
 const slideNavItems = [
   "Modular Kitchen",
@@ -32,7 +33,11 @@ const slideNavItems = [
 ];
 export default function Admin() {
   const adminPanelData = useSelector((store) => store.adminPanel);
+  const {  token, } = useSelector(
+    (store) => store.auth
+  );
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [headingEditorModal, setHeadingEditorModal] = useState({
     isOpen: false,
@@ -97,7 +102,7 @@ export default function Admin() {
       getAdminPanelDataAction({
         category: adminPanelData.category,
         openSnackbar,
-      })
+      },token)
     );
   };
   const handleHeadingFormSubmit = (event) => {
@@ -114,7 +119,7 @@ export default function Admin() {
         category: adminPanelData.category,
         openSnackbar,
         resetHeadingEditorModal,
-      })
+      },token)
     );
   };
   const handleDeleteImage = () => {
@@ -124,7 +129,7 @@ export default function Admin() {
         id: imageDeleteModal.id,
         openSnackbar,
         resetImageDeleteModal,
-      })
+      },token)
     );
   };
   const handleAddNewImage = (event) => {
@@ -147,10 +152,12 @@ export default function Admin() {
         category,
         openSnackbar,
         resetAddNewImageModal,
-      })
+      },token)
     );
   };
-  // useEffect(() => {}, [adminPanelData]);
+  useEffect(() => {
+    if(!token) navigate("/signin")
+  }, [token]);
   return (
     <main className="p-10">
       <h2 className="text-5xl text-center p-4">Admin Panel</h2>
