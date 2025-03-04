@@ -23,11 +23,12 @@ export default function Footer() {
       "Contact Us",
       "Our Location",
     ],
-    [
-      "Contact Us",
-      "Call Us : +91 89296 44783",
-      "Email Us : support@geniusinterio.com",
-    ],
+    // [
+    //   "Contact Us",
+    //   "Call Us : +91 98998 78932",
+    //   "Call Us : +91 98998 78919",
+    //   "Email Us : support@geniusinterio.com",
+    // ],
   ];
   return (
     <footer className="p-6 text-center   lg:p-20  bg-[#212121]">
@@ -48,6 +49,12 @@ export default function Footer() {
             ))}
           </div>
         ))}
+        <div className="lg:text-sm font-light">
+          <p className="text-secondary mb-4">Contact Us</p>
+           <p className="text-white mb-2"> <a href="tel:+91 98998 78932">Call Us : +91 98998 78932</a></p>
+           <p className="text-white mb-2"> <a href="tel:+91 98998 78919">Call Us : +91 98998 78919</a></p>
+           <p className="text-white mb-2">   <a href="mailto:support@geniusinterio.com">Email Us : support@geniusinterio.com</a></p>
+        </div>
       </div>
       <hr className="mt-10"/>
       <p className="text-center mt-10 pb-16 lg:pb-0 text-white tracking-wider text-sm">2024 © All rights reserved by Genius Interio Pvt. Ltd.</p>
