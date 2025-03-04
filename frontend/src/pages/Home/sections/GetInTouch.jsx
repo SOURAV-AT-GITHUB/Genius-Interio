@@ -23,7 +23,7 @@ export default function GetInTouch() {
     `;
 
     const anchor = document.createElement("a");
-    anchor.href = `mailto:yash.techtitudetribe@gmail.com?subject=Service%20Enquiry%20Related%20to%20${encodeURIComponent(
+    anchor.href = `mailto:contact@geniusinterio.com?subject=Service%20Enquiry%20Related%20to%20${encodeURIComponent(
       project
     )}&body=${emailBody}`;
     anchor.click();
@@ -102,7 +102,7 @@ export default function GetInTouch() {
             className="col-span-2 row-span-4  border border-primary p-2 pl-5  text-lg"
             required
             value={description}
-            onChange={(e) => updateFormData({ description: e.target.value })}
+            onChange={(e) => updateFormData({ description: e.target.value.trimStart() })}
           />
           <div className="col-span-2 text-center">
             <Button text="Request Quote" />
