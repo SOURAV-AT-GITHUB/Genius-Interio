@@ -20,3 +20,6 @@ export const SIGN_IN_REQUEST = "SIGN_IN_REQUEST"
 export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS"
 export const SIGN_IN_ERROR = "SIGN_IN_ERROR"
 export const FORCE_SIGN_OUT = "FORCE_SIGN_OUT"
+
+export const ADD_UPDATE_FORM_DATA = "ADD_UPDATE_FORM_DATA"
+export const RESET_FORM = "RESET_FORM"

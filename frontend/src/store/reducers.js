@@ -16,6 +16,8 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_IN_ERROR,
   FORCE_SIGN_OUT,
+  ADD_UPDATE_FORM_DATA,
+  RESET_FORM,
 } from "./actionTypes";
 
 const defaultAdminPanelState = {
@@ -75,24 +77,44 @@ export const authReducer = (state = defaultAuthState, { type, payload }) => {
   switch (type) {
     case SIGN_IN_REQUEST:
       return (state = { ...defaultAuthState, isAuthLoading: true });
-    case SIGN_IN_SUCCESS:{
-      localStorage.setItem('auth',payload)
+    case SIGN_IN_SUCCESS: {
+      localStorage.setItem("auth", payload);
       return (state = {
         isAuthLoading: false,
         token: payload,
         isAuthError: null,
-      });}
-    case SIGN_IN_ERROR:{
-      
+      });
+    }
+    case SIGN_IN_ERROR: {
       return (state = {
         isAuthLoading: false,
         token: null,
         isAuthError: payload,
-      });}
-      case FORCE_SIGN_OUT: {
-        localStorage.removeItem("auth")
-        return state = {...defaultAuthState,isAuthError:payload}
-      }
+      });
+    }
+    case FORCE_SIGN_OUT: {
+      localStorage.removeItem("auth");
+      return (state = { ...defaultAuthState, isAuthError: payload });
+    }
+    default:
+      return state;
+  }
+};
+
+const defaultFormState = {
+  first_name: "",
+  last_name: "",
+  contact_number: "",
+  email: "",
+  project: "",
+  description: "",
+};
+export const formReducer = (state = defaultFormState, { type, payload }) => {
+  switch (type) {
+    case ADD_UPDATE_FORM_DATA:
+      return (state = { ...state, ...payload });
+    case RESET_FORM:
+      return state = defaultFormState
     default:
       return state;
   }

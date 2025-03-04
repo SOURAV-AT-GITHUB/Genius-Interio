@@ -1,22 +1,22 @@
 import Button from "../../../components/Button";
-
+import { useDispatch, useSelector } from "react-redux";
+import { ADD_UPDATE_FORM_DATA } from "../../../store/actionTypes";
 export default function GetInTouch() {
+  const { first_name, last_name, contact_number, email, project, description } =
+    useSelector((store) => store.form);
+  const dispatch = useDispatch();
+  const updateFormData = (payload) => {
+    dispatch({ type: ADD_UPDATE_FORM_DATA, payload });
+  };
   function handleSubmit(event) {
     event.preventDefault();
-
-    const first_name = event.target[0].value;
-    const last_name = event.target[1].value;
-    const contact_number = event.target[2].value;
-    const email = event.target[3].value;
-    const project = event.target[4].value;
-    const message = event.target[5].value;
 
     const emailBody = `
   Hello,%0A
   I'm looking for a service enquiry related to ${encodeURIComponent(
     project
   )}.%0A%0A
-  ${encodeURIComponent(message)}%0A%0A
+  ${encodeURIComponent(description)}%0A%0A
   ${encodeURIComponent(first_name)} ${encodeURIComponent(last_name)}%0A
   ${encodeURIComponent(contact_number)}%0A
   ${encodeURIComponent(email)}%0A
@@ -53,12 +53,16 @@ export default function GetInTouch() {
             placeholder="First Name"
             className="border border-primary p-2 pl-5  text-lg "
             required
+            value={first_name}
+            onChange={(e) => updateFormData({ first_name: e.target.value })}
           />
           <input
             type="text"
             placeholder="Last Name"
             className="border border-primary p-2 pl-5  text-lg "
             required
+            value={last_name}
+            onChange={(e) => updateFormData({ last_name: e.target.value })}
           />
           <input
             type="number"
@@ -67,16 +71,25 @@ export default function GetInTouch() {
             placeholder="Contact Number"
             className="border border-primary p-2 pl-5  text-lg "
             required
+            value={contact_number}
+            onChange={(e) => {
+              if (e.target.value.length > 10) return;
+              updateFormData({ contact_number: e.target.value });
+            }}
           />
           <input
             type="email"
             placeholder="Email"
             className="border border-primary p-2 pl-5  text-lg "
             required
+            value={email}
+            onChange={(e) => updateFormData({ email: e.target.value })}
           />
           <select
             required
             className="col-span-2 border border-primary p-2 pl-5  text-lg"
+            value={project}
+            onChange={(e) => updateFormData({ project: e.target.value })}
           >
             <option value="">Project Type</option>
             <option value="Home">Home</option>
@@ -88,6 +101,8 @@ export default function GetInTouch() {
             placeholder="Description"
             className="col-span-2 row-span-4  border border-primary p-2 pl-5  text-lg"
             required
+            value={description}
+            onChange={(e) => updateFormData({ description: e.target.value })}
           />
           <div className="col-span-2 text-center">
             <Button text="Request Quote" />
