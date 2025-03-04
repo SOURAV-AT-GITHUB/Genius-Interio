@@ -7,7 +7,6 @@ export default function SignIn() {
   const { isAuthLoading, token, isAuthError } = useSelector(
     (store) => store.auth
   );
-  console.log(isAuthError)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function handleLogIn(event) {
