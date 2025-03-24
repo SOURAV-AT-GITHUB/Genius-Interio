@@ -81,6 +81,10 @@ export default function CalculateApproximateCost() {
     mobile: "",
     property_name: "",
   });
+  const [error,setError] = useState({
+    mobile:null,
+    email:null
+  })
   const navigate = useNavigate();
   const decreaseStep = () => {
     setActiveStep((prev) => {
@@ -88,7 +92,14 @@ export default function CalculateApproximateCost() {
       else return prev - 1;
     });
   };
+  function validateEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+    return emailRegex.test(email);
+  }
   const handleMail = () => {
+    if(formData.mobile.length !== 10) return setError(prev=>({...prev,mobile:"Mobile number must be 10 digits."}))
+    if(!validateEmail(formData.email)) return setError(prev=>({...prev,email:"Please enter a valid email,"}))
     const emailBody = `
     Hello,%0A
     I'm looking for a service enquiry related to ${encodeURIComponent(formData.BHKType)} ${encodeURIComponent(
@@ -149,7 +160,7 @@ export default function CalculateApproximateCost() {
         ) : activeStep === 1 ? (
           <Step2 formData={formData} setFormData={setFormData} />
         ) : (
-          <Step3 formData={formData} setFormData={setFormData} />
+          <Step3 formData={formData} setFormData={setFormData} error={error} setError={setError}/>
         )}
       </section>
       <section className="max-w-[900px] m-auto pt-2">
