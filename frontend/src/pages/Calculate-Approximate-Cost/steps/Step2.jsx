@@ -1,7 +1,7 @@
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-export default function Step2(props) {
-      const {formData,setFormData} = props
+/*eslint-disable react/prop-types */
+export default function Step2({formData,setFormData}) {
 //onClick={()=>setFormData((prev)=>({...prev,roomDesign:{...prev.roomDesign,[key]:prev.roomDesign[key]-1}}))}
       
   return (

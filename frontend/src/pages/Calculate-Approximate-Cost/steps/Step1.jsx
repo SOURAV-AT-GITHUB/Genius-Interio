@@ -1,5 +1,5 @@
-export default function Step1(props) {
-  const { formData, setFormData } = props;
+/*eslint-disable react/prop-types */
+export default function Step1({ formData, setFormData }) {
   const BHKOptions = ["1 BHK", "2 BHK", "3 BHK", "4 BHK+"];
   return (
     <div className="text-center bg-white p-2">
