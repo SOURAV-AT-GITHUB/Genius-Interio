@@ -91,15 +91,15 @@ export default function CalculateApproximateCost() {
   const handleMail = () => {
     const emailBody = `
     Hello,%0A
-    I'm looking for a service enquiry related to ${encodeURIComponent(
+    I'm looking for a service enquiry related to ${encodeURIComponent(formData.BHKType)} ${encodeURIComponent(
       formData.property_name
     )}.%0A%0A
     Requirements: %0A
-      Living Room - ${formData.roomDesign["Living Room"]}%0A
-      Kitchen - ${formData.roomDesign.Kitchen}%0A
-      Bedroom - ${formData.roomDesign.Bedroom}%0A
-      Bathroom - ${formData.roomDesign.Bathroom}%0A
-      Dining - ${formData.roomDesign.Dining}%0A
+      Living Room - ${encodeURIComponent(formData.roomDesign["Living Room"])}%0A
+      Kitchen - ${encodeURIComponent(formData.roomDesign.Kitchen)}%0A
+      Bedroom - ${encodeURIComponent(formData.roomDesign.Bedroom)}%0A
+      Bathroom - ${encodeURIComponent(formData.roomDesign.Bathroom)}%0A
+      Dining - ${encodeURIComponent(formData.roomDesign.Dining)}%0A
 
     ${encodeURIComponent(formData.name)}%0A
     ${encodeURIComponent(formData.mobile)}%0A
